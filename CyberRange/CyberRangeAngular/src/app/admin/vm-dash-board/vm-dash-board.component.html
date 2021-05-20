@@ -1,0 +1,10 @@
+<div class="resolved" *ngIf="resolved">
+  <div class="vm-element" *ngFor="let vm of vmList">
+    <app-vm-element
+      name="{{ vm['vmName'] }}"
+      origin="{{ vm['origin'] }}"
+      player="{{ vm['player'] | json }}"
+      res="{{ vm }}"
+    ></app-vm-element>
+  </div>
+</div>

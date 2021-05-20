@@ -1,0 +1,111 @@
+<div class="bg-fade"></div>
+<main>
+  <!-- <div class="banner-pic">
+    <img src="{{ player['bannerPictureUrl'] }}" />
+  </div> -->
+  <div class="exit">
+    <button class="exit" (click)="callParent()">X</button>
+  </div>
+  <section class="container" *ngIf="IsGame == 'true'; else IsTask">
+    <a routerLink="/player/edit">
+      <div class="profilepicture">
+        <img src="{{ player['profilePictureUrl'] }}" alt="" />
+      </div>
+    </a>
+    <div class="answer">
+      <div class="header">
+        <h1>{{ Name }}</h1>
+        <hr class="redline" />
+      </div>
+      <div class="text">
+        <article>
+          <div class="points">
+            <h1>Game Id</h1>
+            <p>{{ origin["GameId"] }}</p>
+          </div>
+          <div class="time">
+            <h1>Game state</h1>
+            <p>{{ origin["state"] }}</p>
+          </div>
+        </article>
+        <article>
+          <div class="points">
+            <h1>First name</h1>
+            <p>{{ player["firstName"] }}</p>
+          </div>
+          <div class="time">
+            <h1>Last name</h1>
+            <p>{{ player["lastName"] }}</p>
+          </div>
+        </article>
+        <article>
+          <div class="points">
+            <h1>Email</h1>
+            <p>{{ player["email"] }}</p>
+          </div>
+          <div class="time">
+            <h1>Username</h1>
+            <p>{{ player["userName"] }}</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <ng-template #IsTask>
+    <section class="container">
+      <a routerLink="/player/edit">
+        <div class="profilepicture">
+          <img src="{{ player['profilePictureUrl'] }}" alt="" />
+        </div>
+      </a>
+      <div class="answer">
+        <div class="header">
+          <h1>{{ Name }}</h1>
+          <hr class="redline" />
+        </div>
+        <div class="text">
+          <article>
+            <div class="points">
+              <h1>Task Id</h1>
+              <p>{{ origin["PlayerTaskId"] }}</p>
+            </div>
+            <div class="time">
+              <h1>Started</h1>
+              <p>{{ origin["Started"] | date: "dd/MM/yy Kl: HH:mm" }}</p>
+            </div>
+          </article>
+          <article>
+            <div class="points">
+              <h1>Task state</h1>
+              <p>{{ origin["TaskState"] }}</p>
+            </div>
+            <div class="time">
+              <h1>Failed flags</h1>
+              <p>{{ origin["NumberOfFailedflags"] }}</p>
+            </div>
+          </article>
+          <article>
+            <div class="points">
+              <h1>First name</h1>
+              <p>{{ player["firstName"] }}</p>
+            </div>
+            <div class="time">
+              <h1>Last name</h1>
+              <p>{{ player["lastName"] }}</p>
+            </div>
+          </article>
+          <article>
+            <div class="points">
+              <h1>Email</h1>
+              <p>{{ player["email"] }}</p>
+            </div>
+            <div class="time">
+              <h1>Username</h1>
+              <p>{{ player["userName"] }}</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </ng-template>
+</main>

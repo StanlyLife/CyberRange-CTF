@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="707" height="525" viewBox="0 0 707 525">
+  <defs>
+    <filter id="_365" x="0" y="0" width="707" height="525" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="15.5" result="blur"/>
+      <feFlood flood-color="#c8a518"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_1913" data-name="Group 1913" transform="translate(-251.5 -1071.5)">
+    <g transform="matrix(1, 0, 0, 1, 251.5, 1071.5)" filter="url(#_365)">
+      <text id="_365-2" data-name="365" transform="translate(353.5 380.5)" fill="#fc0" font-size="306" font-family="Arial-Black, Arial" font-weight="800"><tspan x="-306.149" y="0">365</tspan></text>
+    </g>
+    <text id="tilgjengelg" transform="translate(609 1211)" fill="#c8a518" font-size="79" font-family="Arial-Black, Arial" font-weight="800"><tspan x="-310.252" y="0">TILGJENGELG</tspan></text>
+    <text id="dager_i_året" data-name="dager i året" transform="translate(609 1533)" fill="#c8a518" font-size="79" font-family="Arial-Black, Arial" font-weight="800"><tspan x="-311.41" y="0">DAGER I ÅRET</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+<div class="dashboard" [ngClass]="Category == 'Serious' ? 'Serious' : 'fun'">
+  <div class="header">
+    <div class="imgcircle">
+      <i class="game-icon fa {{ Icon }} fa-4x"></i>
+    </div>
+    <h1 class="title">{{ gameName }}</h1>
+    <h2 class="title" [ngClass]="Category == 'Serious' ? 'Serious' : 'fun'">
+      {{ Category }}
+    </h2>
+    <h3>{{ gameId }}</h3>
+  </div>
+  <div class="content">
+    <article class="description" *ngIf="Hidden == 'false'">
+      {{ Description }}
+    </article>
+    <article class="description" *ngIf="Hidden == 'true'">
+      <h1>HIDDEN</h1>
+      <i class="fa fa-eye-slash"></i>
+    </article>
+  </div>
+  <div class="buttons btn-gold">
+    <a [routerLink]="['/admin/game/edit', gameId]">Configure</a>
+  </div>
+</div>

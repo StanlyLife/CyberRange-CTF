@@ -1,0 +1,336 @@
+<main>
+  <div class="gamecontainer">
+    <div class="container game">
+      <div class="box">
+        <div class="header">
+          <div class="icons">
+            <div class="visibility">
+              <button
+                id="visibilitybtn"
+                class="iconbutton"
+                (click)="ChangeVisibility()"
+              >
+                <i
+                  *ngIf="!gameModel.hidden"
+                  class="fa fa-eye"
+                  style="cursor: pointer"
+                ></i>
+                <i
+                  *ngIf="gameModel.hidden"
+                  class="fa fa-eye-slash"
+                  style="cursor: pointer"
+                ></i>
+              </button>
+            </div>
+            <div class="delete">
+              <button id="deletebtn" class="iconbutton" (click)="DeleteGame()">
+                <i class="fa fa-remove" style="cursor: pointer"></i>
+              </button>
+            </div>
+          </div>
+          <div class="image">
+            <i
+              class="fa {{ editGameForm.value.Icon }}"
+              style="cursor: pointer"
+            ></i>
+          </div>
+          <div class="text">
+            <h6>Edit</h6>
+            <h1 *ngIf="formData" id="game">
+              {{ editGameForm.value.Name }}
+            </h1>
+          </div>
+        </div>
+        <div class="form">
+          <form
+            *ngIf="formData"
+            novalidate
+            (ngSubmit)="EditGame()"
+            [formGroup]="editGameForm"
+            class="GameEdit"
+          >
+            <div class="left">
+              <div class="inp-label">
+                <label>Game</label>
+                <input type="text" formControlName="Name" />
+              </div>
+              <div
+                class="form-errors"
+                *ngIf="
+                  editGameForm.controls['Name'].invalid &&
+                  editGameForm.controls['Name'].dirty
+                "
+              >
+                <div *ngIf="editGameForm.controls['Name'].errors.required">
+                  Game name is required
+                </div>
+              </div>
+              <div class="inp-label textarea">
+                <label>Description</label>
+                <textarea
+                  class="descriptionScrollbar"
+                  id="descriptionBoundaries"
+                  formControlName="Description"
+                ></textarea>
+              </div>
+              <div
+                class="form-errors"
+                *ngIf="
+                  editGameForm.controls['Description'].invalid &&
+                  editGameForm.controls['Description'].dirty
+                "
+              >
+                <div
+                  *ngIf="editGameForm.controls['Description'].errors.required"
+                >
+                  A description is required
+                </div>
+              </div>
+            </div>
+            <div class="right">
+              <div class="inp-label dropdown">
+                <label>Category</label>
+                <select type="dropdown" formControlName="Category">
+                  <option
+                    *ngFor="let state of categories"
+                    [ngValue]="state.name"
+                  >
+                    {{ state.name }}
+                  </option>
+                </select>
+              </div>
+              <div class="inp-label">
+                <label>Icon</label>
+                <input
+                  type="text"
+                  formControlName="Icon"
+                  placeholder="fa-cogs"
+                />
+                <a class="iconbtn" routerLink="/font-awesome" target="_blank"
+                  ><i class="fa fa-font-awesome"></i
+                ></a>
+              </div>
+              <div class="inp-label checkbox">
+                <label>Password required</label>
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  formControlName="PasswordRequired"
+                />
+              </div>
+              <div
+                class="inp-label"
+                *ngIf="editGameForm.value.PasswordRequired"
+              >
+                <label>Password</label>
+                <input
+                  type="text"
+                  formControlName="password"
+                  placeholder="rockyou.txt"
+                />
+              </div>
+              <!-- <div class="inp-label checkbox">
+                <label>Always open</label>
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  formControlName="AlwaysOpen"
+                />
+              </div> -->
+              <div class="inp-label">
+                <label>Start</label>
+                <input
+                  type="datetime-local"
+                  formControlName="StartDate"
+                  value="{{ gameModel.StartDate }}"
+                />
+                <span class="icon right">📅</span>
+              </div>
+              <div
+                class="form-errors"
+                *ngIf="
+                  editGameForm.controls['StartDate'].invalid &&
+                  editGameForm.controls['StartDate'].dirty
+                "
+              >
+                <div *ngIf="editGameForm.controls['StartDate'].errors.required">
+                  Please select a start date
+                </div>
+              </div>
+              <div class="inp-label">
+                <label>End</label>
+                <input
+                  type="datetime-local"
+                  formControlName="EndDate"
+                  value="{{ gameModel.EndDate }}"
+                />
+                <span class="icon right">📅</span>
+              </div>
+              <div
+                class="form-errors"
+                *ngIf="
+                  editGameForm.controls['EndDate'].invalid &&
+                  editGameForm.controls['EndDate'].dirty
+                "
+              >
+                <div *ngIf="editGameForm.controls['EndDate'].errors.required">
+                  Please select an end date
+                </div>
+              </div>
+              <div class="inp-label dropdown">
+                <label>End</label>
+                <select
+                  type="dropdown"
+                  formControlName="VmTemplate"
+                  #selectElem
+                  (change)="setNewImage(selectElem.value)"
+                >
+                  <option
+                    *ngFor="let template of vmTemplates"
+                    [value]="template"
+                  >
+                    {{ template }}
+                  </option>
+                </select>
+              </div>
+              <!-- <div class="inp-label checkbox">
+                <label>Teams</label>
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  formControlName="IsTeamGame"
+                />
+              </div>
+              <div class="inp-label checkbox">
+                <label>Players</label>
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  formControlName="IsPlayerGame"
+                />
+              </div> -->
+            </div>
+            <div class="formbuttonpos">
+              <button class="formbutton" type="submit">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tasks">
+    <div class="has-tasks" *ngIf="hasTasksBool; else noTasks">
+      <div class="taskheader">
+        <h1>This game has these tasks</h1>
+        <img id="redline" src="../../../../assets/Rectangle 122.png" alt="" />
+      </div>
+      <!--  ALLL TASKS THAT GAME ALREADY HAS  -->
+      <div class="taskcontainer">
+        <div *ngFor="let task of hasTasks">
+          <app-game-task-element
+            id="task{{ task.taskId }}"
+            taskName="{{ task.name }}"
+            taskId="{{ task.taskId }}"
+            Icon="{{ task.icon }}"
+            Page="game-has"
+            Points="{{ task.maxPoints }}"
+            Duration="{{ task.duration }}"
+            Description="{{ task.Description }}"
+            Flag="{{ task.flag }}"
+            RandomFlag="{{ task.randomFlag }}"
+            State="{{ task.state }}"
+            LocalState="Added"
+            GameId="{{ id }}"
+          ></app-game-task-element>
+        </div>
+      </div>
+    </div>
+    <ng-template #noTasks>
+      <div class="taskheader">
+        <h1>This game has no tasks</h1>
+        <img id="redline" src="../../../../assets/Rectangle 122.png" alt="" />
+      </div>
+    </ng-template>
+    <!--  ALL TASKS THAT CAN BE ADDED TO GAME  -->
+    <div class="taskheader">
+      <h1>Available tasks</h1>
+      <img id="redline" src="../../../../assets/Rectangle 122.png" alt="" />
+    </div>
+    <div class="taskcontainer" *ngIf="hasTaskLoaded">
+      <div *ngFor="let task of tasks">
+        <app-game-task-element
+          (AddToGame)="RefreshHasTasks()"
+          taskName="{{ task.name }}"
+          taskId="{{ task.taskId }}"
+          Icon="{{ task.icon }}"
+          Page="game-add"
+          Points="{{ task.maxPoints }}"
+          Duration="{{ task.duration }}"
+          Description="{{ task.Description }}"
+          Flag="{{ task.flag }}"
+          RandomFlag="{{ task.randomFlag }}"
+          State="{{ task.state }}"
+          GameId="{{ id }}"
+          LocalState="Available"
+        ></app-game-task-element>
+      </div>
+    </div>
+    <!-- CREATE TASKS -->
+    <div class="addtask">
+      <h2 id="task">Create tasks</h2>
+      <a class="bigbutton" routerLink="/admin/task/create">Add</a>
+    </div>
+  </div>
+  <div class="bg-rings">
+    <img class="ring smallring" src="../../assets/Ringer/small.svg" alt="" />
+    <img
+      class="ring mediumringleft"
+      src="../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img
+      class="ring mediumringright"
+      src="../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img class="ring normalring" src="../../assets/Ringer/medium.svg" alt="" />
+    <img
+      class="ring largeringleft"
+      src="../../assets/Ringer/large.svg"
+      alt=""
+    />
+    <img
+      class="ring largeringright"
+      src="../../assets/Ringer/large.svg"
+      alt=""
+    />
+    <img
+      class="ring xlargering"
+      src="../../assets/Ringer/extralarge.svg"
+      alt=""
+    />
+  </div>
+</main>
+<div class="srchbg">
+  <div class="searchplayer">
+    <div class="taskheader">
+      <h1>add users</h1>
+      <img id="redline" src="../../../../assets/Rectangle 122.png" alt="" />
+    </div>
+    <div class="field">
+      <input class="searchinput" type="text" placeholder="Search for players" />
+      <button class="gsbtn"><i class="fa fa-search"></i></button>
+      <button class="gsbtn"><i class="fa fa-list-ul"></i></button>
+    </div>
+    <div class="resultscontainer">
+      <app-player-search-result></app-player-search-result>
+      <app-player-search-result></app-player-search-result>
+      <app-player-search-result></app-player-search-result>
+    </div>
+  </div>
+</div>

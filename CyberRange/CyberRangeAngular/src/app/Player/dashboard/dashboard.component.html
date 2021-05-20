@@ -1,0 +1,111 @@
+<app-profileheader></app-profileheader>
+
+<main>
+  <div class=""></div>
+  <div class="card-holders">
+    <!--  -->
+    <div class="dashboard player play">
+      <div class="header">
+        <div class="iconholder">
+
+          <img
+          class="cardimg newimg"
+          src="../../../assets/Dashboards/Ellipse 12.png"
+          alt=""
+          />
+          <div class="cardicon gameicon"><i class="fa fa-gamepad"></i></div>
+        </div>
+        <h1>GAMES</h1>
+      </div>
+      <div class="content">
+        <article>
+          In this section you can view the games you are currently participating
+          in as well as sign up for new ones. Do not miss out on the fun, hit
+          play right now!
+        </article>
+      </div>
+      <div class="buttons">
+        <a class="btn" [routerLink]="['/player/game']">play</a>
+      </div>
+    </div>
+    <!--  -->
+    <!--  -->
+    <div class="dashboard player profile">
+      <div class="header">
+        <div class="iconholder">
+
+          <img
+          class="cardimg newimg"
+          src="../../../assets/Dashboards/Ellipse 12.png"
+          alt=""
+          />
+          <div class="cardicon usericon"><i class="fa fa-user "></i></div>
+        </div>
+        <h1>PROFILE</h1>
+      </div>
+      <div class="content">
+        <article>
+          Make sure to keep your profile up to date. Customize your own profile
+          picture as well as banner. Found your password on haveibeenpwnd? Don’t
+          worry you can change it here!
+        </article>
+      </div>
+      <div class="buttons">
+        <a class="btn" [routerLink]="['edit']">Profile</a>
+      </div>
+    </div>
+    <!--  -->
+    <!--  -->
+    <div class="dashboard player stats">
+      <div class="header">
+        <div class="iconholder">
+
+          <img
+          class="cardimg newimg"
+          src="../../../assets/Dashboards/Ellipse 12.png"
+          alt=""
+          />
+          <div class="cardicon statsicon"><i class="fa fa-pie-chart"></i></div>
+        </div>
+        <h1>STATS</h1>
+      </div>
+      <div class="content">
+        <article>
+          Curious how you are comparing to others? Perhaps you plan to rock the
+          scoreboards? Check out this section to see how well you are doing!
+        </article>
+      </div>
+      <div class="buttons">
+        <a class="btn">check stats</a>
+      </div>
+    </div>
+    <!--  -->
+  </div>
+  <div class="bg-rings">
+    <img
+      class="ring mediumringleft"
+      src="../../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img
+      class="ring mediumringright"
+      src="../../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img
+      class="ring normalring"
+      src="../../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img
+      class="ring largeringleft"
+      src="../../../assets/Ringer/large.svg"
+      alt=""
+    />
+    <img
+      class="ring largeringright"
+      src="../../../assets/Ringer/large.svg"
+      alt=""
+    />
+  </div>
+</main>

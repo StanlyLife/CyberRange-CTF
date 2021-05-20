@@ -1,0 +1,278 @@
+<main *ngIf="resolved; else loading">
+  <div class="header">
+    <h1 id="header">edit profile</h1>
+    <h2 id="header">{{ user["userName"] }}</h2>
+    <img id="redrectangle" src="../../../../assets/Rectangle 122.png" alt="" />
+  </div>
+  <!-- HEADER IMAGE -->
+  <!-- HEADER IMAGE -->
+  <!-- HEADER IMAGE -->
+  <!-- HEADER IMAGE -->
+  <div class="createform header-image">
+    <button
+      *ngIf="headerImageExists"
+      class="edit-photo"
+      (click)="ToggleHeaderImage()"
+    >
+      <i class="fa fa-pencil"></i>
+    </button>
+    <img
+      *ngIf="headerImageExists && DisplayHeader"
+      class="img-header"
+      [src]="headerCroppedImage"
+    />
+    <ly-img-cropper
+      #headercropping
+      [config]="HeaderConfig"
+      [(scale)]="scale"
+      (ready)="HeaderReady($event)"
+      (minScale)="minScale = $event"
+      (cleaned)="ready = false"
+      (cropped)="onHeaderCropped($event)"
+      (error)="onError($event)"
+    >
+      <span>Drag and drop image</span>
+    </ly-img-cropper>
+
+    <ng-container>
+      <ly-slider
+        *ngIf="HeaderIsReady"
+        class="image-slider"
+        [thumbVisible]="false"
+        [min]="minScale"
+        [max]="1"
+        (input)="scale = $event.value"
+        step="0.000001"
+      ></ly-slider>
+    </ng-container>
+
+    <button
+      *ngIf="HeaderIsReady"
+      color="accent"
+      class="btn red image-crop-button"
+      (click)="headercropping.crop()"
+      (click)="SaveHeaderImage()"
+      ly-button
+    >
+      save
+    </button>
+  </div>
+  <!-- HEADER IMAGE END -->
+  <!-- HEADER IMAGE END -->
+
+  <!-- Profile form -->
+  <!-- Profile form -->
+  <!-- Profile form -->
+  <!-- Profile form -->
+  <div class="createform">
+    <div class="profilepic">
+      <div class="pfpbg">
+        <button class="edit-photo" (click)="ToggleImageModal()">
+          <i class="fa fa-pencil"></i>
+        </button>
+        <img class="pfp" [src]="croppedImage" />
+      </div>
+    </div>
+    <form
+      novalidate
+      (ngSubmit)="UpdateUser()"
+      [formGroup]="pf"
+      class="profile-form"
+    >
+      <div class="formcontainer">
+        <div class="one">
+          <div class="editTextAreaAndLabel">
+            <label id="bioLabel" for="bio">Biography</label>
+            <textarea
+              class="inputstyles"
+              formControlName="Biography"
+              type="text"
+              id="bio"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="two">
+        <div class="inputcontainer">
+          <div class="inputandlabel">
+            <label for="Password">New password</label>
+            <input class="inputstyles" type="text" id="Password" formControlName="Password" />
+          </div>
+        </div>
+        <div class="inputcontainer">
+          <div class="inputandlabel">
+            <label for="PhoneNumber">Phone number</label>
+            <input class="inputstyles" formControlName="Phonenumber" type="text" id="Phonenumber" />
+          </div>
+        </div>
+      </div>
+      <div class="three">
+        <div class="inputcontainer">
+          <div class="inputandlabel">
+            <input
+              disabled
+              class="inp-disabled"
+              type="text"
+              id="Email-input"
+              placeholder="Email - cannot change"
+              value="{{ user['email'] }}"
+            />
+          </div>
+        </div>
+        <div class="inputcontainer">
+          <div class="inputandlabel">
+            <input
+              disabled
+              class="inp-disabled"
+              type="text"
+              id="fn-input"
+              placeholder="First name - cannot change"
+              value="{{ user['firstName'] }}"
+            />
+          </div>
+        </div>
+        <div class="inputcontainer">
+          <div class="inputandlabel">
+            <input
+              disabled
+              class="inp-disabled"
+              type="text"
+              id="ln-input"
+              placeholder="Last name - cannot change"
+              value="{{ user['lastName'] }}"
+            />
+          </div>
+        </div>
+        <div class="inputcontainer">
+          <div class="inputandlabel">
+            <input
+              disabled
+              class="inp-disabled"
+              type="text"
+              id="ln-input"
+              placeholder="Last name - cannot change"
+              value="Totalt score: {{ user['totalPoints'] }} points"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="four">
+        <button class="btn red" type="submit">Save</button>
+      </div>
+    </form>
+    <!-- MODAL -->
+    <!-- MODAL -->
+    <!-- MODAL -->
+    <!-- MODAL -->
+    <div class="change-image-modal" *ngIf="changeImageModal">
+      <div class="cim-bg">
+        <button class="cim-exit btn-exit" (click)="ToggleImageModal()">
+          <i class="fa fa-close"></i>
+        </button>
+        <ly-img-cropper
+          #cropping
+          [config]="PfConfig"
+          [(scale)]="scale"
+          (ready)="onReady($event)"
+          (minScale)="minScale = $event"
+          (cleaned)="ready = false"
+          (cropped)="onCropped($event)"
+          (error)="onError($event)"
+        >
+          <span>Drag and drop image</span>
+        </ly-img-cropper>
+
+        <ng-container *ngIf="ready">
+          <ly-slider
+            class="image-slider"
+            [thumbVisible]="false"
+            [min]="minScale"
+            [max]="1"
+            (input)="scale = $event.value"
+            step="0.000001"
+          ></ly-slider>
+        </ng-container>
+
+        <button
+          *ngIf="true"
+          color="accent"
+          class="btn red image-crop-button"
+          (click)="cropping.crop()"
+          (click)="ToggleImageModal()"
+          ly-button
+        >
+          <ly-icon>crop</ly-icon>
+        </button>
+      </div>
+      <!-- MODAL END -->
+      <!-- MODAL END -->
+      <!-- MODAL END -->
+      <!-- MODAL END -->
+    </div>
+  </div>
+  <div class="bg-rings">
+    <img
+      class="ring mediumringleft"
+      src="../../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img
+      class="ring mediumringright"
+      src="../../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img
+      class="ring normalring"
+      src="../../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img
+      class="ring largeringleft"
+      src="../../../assets/Ringer/large.svg"
+      alt=""
+    />
+    <img
+      class="ring largeringright"
+      src="../../../assets/Ringer/large.svg"
+      alt=""
+    />
+  </div>
+</main>
+<ng-template #loading>
+  <div class="body-loading">
+    <style>
+      .lds-dual-ring {
+        display: inline-block;
+        width: 500px;
+        height: 500px;
+      }
+      .lds-dual-ring:after {
+        content: " ";
+        display: block;
+        width: 100%;
+        height: 100%;
+        margin: 8px;
+        border-radius: 50%;
+        border: 30px solid #ee2a3e;
+        border-color: #ee2a3e transparent #fff transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+      }
+      .body-loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 188px) !important;
+        min-height: calc(100vh - 188px) !important;
+      }
+      @keyframes lds-dual-ring {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <div class="lds-dual-ring"></div>
+  </div>
+</ng-template>

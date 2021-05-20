@@ -1,0 +1,55 @@
+@import "../../../variables.scss";
+
+main {
+    max-width: 1300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    flex-direction: column;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    h1, h2 {
+        font-size: 5rem;
+        color: $gold;
+        text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 900;
+    }
+    h1 {
+        font-size: 15rem;
+    }
+    hr.line {
+        width: 100%;
+        background-color: $red;
+        border: none;
+        padding: .25rem;
+        border-radius: 500px;
+    }
+}
+
+.information {
+    margin-top: 1rem;
+    color: $light;
+    h5,h6 {
+        text-align: center;
+        font-size: 1.5rem;
+        color: $gold;
+    }
+    h6 {
+        color: $light;
+        font-size: 1rem;
+    }
+}
+
+
+.takemehome {
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    color: $light;
+    border-radius: 25px;
+}

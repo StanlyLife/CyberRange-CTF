@@ -1,0 +1,79 @@
+<app-profileheader></app-profileheader>
+
+<main>
+  <div class="searchgames">
+    <h1 id="games">SØK I SPILL</h1>
+    <div class="gamesearchform">
+      <input class="searchinput " type="text" placeholder="Søk" />
+      <a class="gsbtn"><i class="fa fa-search"></i></a>
+      <a class="gsbtn"><i class="fa fa-list-ul"></i></a>
+    </div>
+  </div>
+
+  <div class="gamesheader">
+    <h1>Your participated games</h1>
+    <hr class="redline" />
+  </div>
+  <div class="gamescontainer">
+    <div *ngFor="let game of participatedGameList">
+      <app-game-element
+        gameName="{{ game.Name }}"
+        gameId="{{ game.GameId }}"
+        Description="{{ game.Description }}"
+        Category="{{ game.Category }}"
+        start="{{ game.StartDate }}"
+        Enddate="{{ game.EndDate }}"
+        Participated="true"
+        Hidden="{{ game.Hidden }}"
+        PasswordRequired="{{ game.PasswordRequired }}"
+      ></app-game-element>
+    </div>
+  </div>
+
+  <div class="gamesheader">
+    <h1>Participate in open games</h1>
+    <hr class="redline" />
+  </div>
+  <div class="gamescontainer">
+    <div *ngFor="let game of gameList">
+      <app-game-element
+        Category="{{ game.Category }}"
+        gameName="{{ game.Name }}"
+        gameId="{{ game.GameId }}"
+        Description="{{ game.Description }}"
+        Category="{{ game.Category }}"
+        start="{{ game.StartDate }}"
+        Enddate="{{ game.EndDate }}"
+        Hidden="{{ game.Hidden }}"
+        PasswordRequired="{{ game.PasswordRequired }}"
+      ></app-game-element>
+    </div>
+  </div>
+  <div class="bg-rings">
+    <img
+      class="ring mediumringleft"
+      src="../../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img
+      class="ring mediumringright"
+      src="../../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img
+      class="ring normalring"
+      src="../../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img
+      class="ring largeringleft"
+      src="../../../assets/Ringer/large.svg"
+      alt=""
+    />
+    <img
+      class="ring largeringright"
+      src="../../../assets/Ringer/large.svg"
+      alt=""
+    />
+  </div>
+</main>

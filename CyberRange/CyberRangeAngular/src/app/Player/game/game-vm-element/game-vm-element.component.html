@@ -1,0 +1,81 @@
+<div *ngIf="type == 'task'; else game">
+  <div class="bg-fade"></div>
+  <main>
+    <div class="exit">
+      <button class="exit" (click)="callParent()">X</button>
+    </div>
+    <div class="refresh">
+      <button class="refresh" (click)="GetVmInfoForTask()">
+        <span class="reload">&#x21bb;</span>
+      </button>
+    </div>
+    <div class="answer">
+      <div class="header">
+        <h1>Virtual machine info</h1>
+        <p>This machine is relevant to your task!</p>
+        <hr class="redline" />
+      </div>
+      <div class="text">
+        <div class="vm-name">
+          <p class="key">Name:</p>
+          <p class="value">{{ vmName }}</p>
+        </div>
+        <div class="vm-ip">
+          <p class="key">IP:</p>
+          <p class="value">{{ vmIp }}</p>
+        </div>
+      </div>
+      <div class="text">
+        <div class="vm-name">
+          <p class="key">Vm Username:</p>
+          <p class="value">{{ vmName }}</p>
+        </div>
+        <div class="vm-ip">
+          <p class="key">Vm Password:</p>
+          <p class="value">{{ vmName }}</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<ng-template #game>
+  <div class="bg-fade"></div>
+  <main>
+    <div class="exit">
+      <button class="exit" (click)="callParent()">X</button>
+    </div>
+    <div class="refresh">
+      <button class="refresh" (click)="GetVmInfo()">
+        <span class="reload">&#x21bb;</span>
+      </button>
+    </div>
+    <div class="answer">
+      <div class="header">
+        <h1>Virtual machine info</h1>
+        <p>This machine includes various tools to help you solve the tasks</p>
+        <hr class="redline" />
+      </div>
+      <div class="text">
+        <div class="vm-name">
+          <p class="key">Name:</p>
+          <p class="value">{{ vmName }}</p>
+        </div>
+        <div class="vm-ip">
+          <p class="key">IP:</p>
+          <p class="value">{{ vmIp }}</p>
+        </div>
+      </div>
+      <div class="text">
+        <div class="vm-name">
+          <p class="key">Vm Username:</p>
+          <p class="value">{{ vmName }}</p>
+        </div>
+        <div class="vm-ip">
+          <p class="key">Vm Password:</p>
+          <p class="value">{{ vmName }}</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</ng-template>

@@ -1,0 +1,56 @@
+<div class="card">
+  <div class="card-header" *ngIf="employee">
+    {{ pageTitle + ": " + employee.name }}
+  </div>
+  <div class="card-body" *ngIf="employee">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3">Name:</div>
+          <div class="col-md-6">{{ employee.name }}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">City:</div>
+          <div class="col-md-6">{{ employee.cityname }}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">Address:</div>
+          <div class="col-md-6">{{ employee.address }}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">Gender:</div>
+          <div class="col-md-6">{{ employee.gender }}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">Company:</div>
+          <div class="col-md-6">{{ employee.company }}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">Designation:</div>
+          <div class="col-md-6">{{ employee.designation }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <button
+          class="btn btn-outline-secondary mr-3"
+          style="width: 80px"
+          (click)="onBack()"
+        >
+          <i class="fa fa-chevron-left"></i> Back
+        </button>
+        <button
+          class="btn btn-outline-primary"
+          style="width: 80px"
+          [routerLink]="['/employees', employee.id, 'edit']"
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="alert alert-danger" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+</div>

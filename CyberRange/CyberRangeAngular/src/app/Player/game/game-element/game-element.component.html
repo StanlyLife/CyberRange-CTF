@@ -1,0 +1,299 @@
+<div *ngIf="hasResolved && Hidden != 'true'">
+  <div *ngIf="Participated; else NotParticipated">
+    <!-- ENDED -->
+    <!-- ENDED -->
+    <!-- ENDED -->
+    <!-- ENDED -->
+    <!-- ENDED -->
+    <div *ngIf="ended; else Started">
+      <div
+        class="dashboard innerglow"
+        [ngClass]="Category == 'Serious' ? 'fun' : 'fun'"
+      >
+        <div class="header ended">
+          <div class="imgcircle ended">
+            <img src="../../../assets/BoxIcon.svg" alt="" />
+          </div>
+          <h1 class="ended title">{{ gameName }}</h1>
+          <!-- <h2 class="ended">{{ Category }}</h2> -->
+          <!-- <h3 class="gameID ended">{{ gameId }}</h3> -->
+        </div>
+        <div class="content ended">
+          <article class="description ended">
+            {{ Description }}
+          </article>
+          <div class="info ended">
+            <h3>Ended:</h3>
+            <p class="start-date ended">
+              {{ Enddate | date: "dd/MM/yy - HH:mm" }}
+            </p>
+          </div>
+        </div>
+        <div class="buttons">
+          <!-- <button
+            disabled
+            class="btn signUpBtn disabled"
+            [routerLink]="['/player/game/play/', gameId]"
+            (click)="disableBtn()"
+          >
+            Ended
+          </button> -->
+        </div>
+        <h3 class="endedCardTitle">Ended</h3>
+        <button class="btn statisticsBtn gold">Statistics</button>
+      </div>
+    </div>
+    <ng-template #Started>
+      <!--  STARTED -->
+      <!--  STARTED -->
+      <!--  STARTED -->
+      <!--  STARTED -->
+      <!--  STARTED -->
+      <div *ngIf="started && !ended && State != 'finished'; else NotStarted">
+        <div
+          class="dashboard"
+          [ngClass]="Category == 'Serious' ? 'Serious' : 'fun'"
+        >
+          <div class="header">
+            <div class="imgcircle">
+              <img src="../../../assets/BoxIcon.svg" alt="" />
+            </div>
+            <h1 class="title">{{ gameName }}</h1>
+            <span class="under-border"></span>
+            <!-- <h2>{{ Category }}</h2> -->
+            <!-- <h3 class="gameID">{{ gameId }}</h3> -->
+          </div>
+          <div class="content">
+            <article class="description">
+              {{ Description }}
+            </article>
+            <div class="info">
+              <h3>Started:</h3>
+              <p class="start-date">{{ start | date: "dd/MM/yy - HH:mm" }}</p>
+            </div>
+          </div>
+          <div class="buttons">
+            <a
+              class="btn signUpBtn startedBtn"
+              [routerLink]="['/player/game/play/', gameId]"
+              (click)="disableBtn()"
+            >
+              Play
+            </a>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <!-- NOT STARTED -->
+    <!-- NOT STARTED -->
+    <!-- NOT STARTED -->
+    <!-- NOT STARTED -->
+    <!-- NOT STARTED -->
+    <!-- NOT STARTED -->
+    <ng-template #NotStarted>
+      <div *ngIf="State != 'finished'; else finished">
+        <div
+          class="dashboard"
+          [ngClass]="Category == 'Serious' ? 'Serious' : 'fun'"
+        >
+          <div class="header">
+            <div class="imgcircle">
+              <img src="../../../assets/BoxIcon.svg" alt="" />
+            </div>
+            <h1 class="title">{{ gameName }}</h1>
+            <span class="under-border"></span>
+            <!-- <h2>{{ Category }}</h2> -->
+            <!-- <h3 class="gameID">{{ gameId }}</h3> -->
+          </div>
+          <div class="content">
+            <article class="description">
+              {{ Description }}
+            </article>
+            <div class="info">
+              <h3>Start:</h3>
+              <p class="start-date" *ngIf="countdown">
+                {{ counter | countDownHour }}
+              </p>
+              <p class="start-date" *ngIf="!countdown">
+                {{ start | date: "dd/MM/yy - HH:mm" }}
+              </p>
+            </div>
+          </div>
+          <div class="buttons">
+            <button
+              disabled
+              class="btn signUpBtn disabled"
+              (click)="disableBtn()"
+            >
+              Not started
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  <ng-template #NotParticipated>
+    <div *ngIf="!ended">
+      <div
+        *ngIf="!AllGamesParticipant; else Participant"
+        class="dashboard"
+        [ngClass]="Category == 'Serious' ? 'Serious' : 'fun'"
+      >
+        <div class="header">
+          <div class="imgcircle">
+            <img src="../../../assets/BoxIcon.svg" alt="" />
+          </div>
+          <h1 class="title">{{ gameName }}</h1>
+          <!-- <h2>{{ Category }}</h2> -->
+          <!-- <h3 class="gameID">{{ gameId }}</h3> -->
+        </div>
+        <div class="content">
+          <article class="description">
+            {{ Description }}
+          </article>
+          <div class="info">
+            <h3>Start:</h3>
+            <p *ngIf="!started" class="start-date">
+              {{ start | date: "dd/MM/yy - HH:mm" }}
+            </p>
+            <p *ngIf="started" class="start-date started">Started</p>
+          </div>
+        </div>
+        <div class="buttons">
+          <button
+            class="btn signUpBtn"
+            (click)="participate(gameId)"
+            [ngClass]="{ disabled: btnDisabled }"
+            *ngIf="PasswordRequired == 'false'"
+          >
+            {{ btnDisabled ? "Processing" : "Participate" }}
+          </button>
+          <button
+            class="btn signUpBtn"
+            (click)="TogglePasswordModal()"
+            [ngClass]="{ disabled: btnDisabled }"
+            *ngIf="PasswordRequired == 'true'"
+          >
+            <i class="fa fa-lock"></i>
+            {{ btnDisabled ? "Processing" : "Participate" }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #Participant>
+    <div
+      *ngIf="State != 'finished'; else finished"
+      class="dashboard participated"
+      [ngClass]="Category == 'Serious' ? 'Serious' : 'fun'"
+    >
+      <div class="info">
+        <h1>Participated</h1>
+        <h2 class="title">{{ gameName }}</h2>
+        <h3>{{ started ? "Started!" : "Not started!" }}</h3>
+      </div>
+      <div class="participatedBody">
+        <div class="header">
+          <div class="imgcircle">
+            <img src="../../../assets/BoxIcon.svg" alt="" />
+          </div>
+          <h1>Participant</h1>
+          <h2 class="title">{{ gameName }}</h2>
+          <!-- <h3 class="gameID">{{ gameId }}</h3> -->
+        </div>
+        <div class="content">
+          <article class="description">
+            {{ Description }}
+          </article>
+        </div>
+        <div class="buttons">
+          <button
+            *ngIf="!btnDisabled && !PasswordRequired"
+            class="btn signUpBtn"
+            (click)="participate(gameId)"
+          >
+            {{ PasswordRequired }}
+          </button>
+          <button
+            *ngIf="!btnDisabled && PasswordRequired"
+            class="btn signUpBtn"
+            (click)="TogglePasswordModal()"
+          >
+            Participate with password
+          </button>
+          <button
+            *ngIf="btnDisabled"
+            disabled
+            class="btn signUpBtn disabled"
+            (click)="participate(gameId)"
+          >
+            Loading...
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #finished>
+    <div>
+      <div
+        class="dashboard innerglow"
+        [ngClass]="Category == 'Serious' ? 'fun' : 'fun'"
+      >
+        <div class="header ended">
+          <div class="imgcircle ended">
+            <img src="../../../assets/BoxIcon.svg" alt="" />
+          </div>
+          <h1 class="ended title">{{ gameName }}</h1>
+          <!-- <h2 class="ended">{{ Category }}</h2> -->
+          <!-- <h3 class="gameID ended">{{ gameId }}</h3> -->
+        </div>
+        <div class="content ended">
+          <article class="description ended">
+            {{ Description }}
+          </article>
+          <div class="info ended">
+            <h3>Ended:</h3>
+            <p class="start-date ended">
+              {{ Enddate | date: "dd/MM/yy - HH:mm" }}
+            </p>
+          </div>
+        </div>
+        <div class="buttons">
+          <!-- <button
+            disabled
+            class="btn signUpBtn disabled"
+            [routerLink]="['/player/game/play/', gameId]"
+            (click)="disableBtn()"
+          >
+            Finished
+          </button> -->
+        </div>
+        <h3 class="endedCardTitle">Finished</h3>
+        <button
+          (click)="ToggleStatisticsModal()"
+          class="btn statisticsBtn gold"
+        >
+          Statistics
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+<app-game-participate-modal-element
+  *ngIf="modal"
+  (myEvent)="TogglePasswordModal()"
+  gameId="{{ gameId }}"
+  gameName="{{ gameName }}"
+></app-game-participate-modal-element>
+
+<app-statistics-element
+  *ngIf="stats"
+  (myEvent)="ToggleStatisticsModal()"
+  MaxTime="{{ MaxTime }}"
+  MaxPoints="{{ MaxPoints }}"
+  PointsRecieved="{{ TotalPointsRecieved }}"
+  TimeSpent="{{ TotalTimeSpent }}"
+  Name="{{ gameName }}"
+></app-statistics-element>

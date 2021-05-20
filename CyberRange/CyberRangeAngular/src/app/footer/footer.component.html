@@ -1,0 +1,20 @@
+<div class="footer">
+  <div class="left">
+    <img class="logo" src="../../assets/kongsbergLogo.png" alt="" />
+    <p class="text" id="text">All rights reserved to Kongsberg 2021</p>
+  </div>
+  <div class="right">
+    <div class="space"></div>
+    <div class="links" *ngIf="!loggedin">
+      <a class="text" id="link" [routerLink]="['/login']">Login</a>
+      <a class="text" id="link" [routerLink]="['/home?register=true']"
+        >Register</a
+      >
+    </div>
+    <!-- <ng-template #logout>
+      <div class="links" *ngIf="loggedin">
+        <button (click)="Logout()" class="text" id="link">Logout</button>
+      </div>
+    </ng-template> -->
+  </div>
+</div>

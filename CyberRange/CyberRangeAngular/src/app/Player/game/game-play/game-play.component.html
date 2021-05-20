@@ -1,0 +1,134 @@
+<app-profileheader> </app-profileheader>
+<main>
+  <div
+    class="game-play-header"
+    [class]="gameCategory == 'fun' ? 'fun' : 'serious'"
+  >
+    <div class="img">
+      <i
+        class="fa {{ GameInfoLoaded ? gameInfo['game']['icon'] : 'fa-blind' }}"
+      ></i>
+      <div class="text">
+        <h1>
+          <p>{{ GameInfoLoaded ? gameInfo["game"]["name"] : "Loading" }}</p>
+        </h1>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="id">
+        <p>id</p>
+        <p>{{ GameInfoLoaded ? gameInfo["game"]["gameId"] : "Loading" }}</p>
+      </div>
+      <div class="time">
+        <p>Time left</p>
+        <p>{{ counter | countDownHour }}</p>
+      </div>
+      <div class="tasks">
+        <p>Tasks</p>
+        <p>{{ GameInfoLoaded ? gameInfo["amountOfTasks"] : "Loading" }}</p>
+      </div>
+      <div class="participants">
+        <p>participants</p>
+        <p>
+          {{ GameInfoLoaded ? gameInfo["participants"] : "Loading" }}
+        </p>
+      </div>
+      <div class="isParticipant">
+        <p>Participating</p>
+        <p>
+          {{ GameInfoLoaded ? gameInfo["participant"] : "Loading" }}
+        </p>
+      </div>
+      <div class="finish">
+        <button class="btn" (click)="FinishGame()">Finish</button>
+        <button
+          *ngIf="gameCategory == 'fun'"
+          class="btn gold"
+          (click)="ToogleStats()"
+        >
+          Leaderboard
+        </button>
+        <button class="btn gold" (click)="ToogleVmInfo()">Get VM</button>
+      </div>
+    </div>
+    <div class="info">
+      <div class="description">
+        {{ GameInfoLoaded ? gameInfo["game"]["description"] : "loading" }}
+      </div>
+    </div>
+  </div>
+
+  <div class="task-content" *ngIf="TaskAvailable; else NoTasks">
+    <div *ngFor="let task of PlayerTasks">
+      <app-game-task-element
+        state="{{ task['state'] }}"
+        taskId="{{ task['taskId'] }}"
+        Description="{{ task['description'] }}"
+        taskName="{{ task['name'] }}"
+        Duration="{{ task['duration'] }}"
+        PointsAchievable="{{ task['maxPoints'] }}"
+        VmTemplateName="{{ task['templateName'] }}"
+        GameId="{{ id }}"
+        GameCategory="{{ gameCategory }}"
+      ></app-game-task-element>
+    </div>
+  </div>
+  <ng-template #NoTasks>
+    <body class="body-loading">
+      <style>
+        .lds-dual-ring {
+          display: inline-block;
+          width: 500px;
+          height: 500px;
+        }
+        .lds-dual-ring:after {
+          content: " ";
+          display: block;
+          width: 100%;
+          height: 100%;
+          margin: 8px;
+          border-radius: 50%;
+          border: 30px solid #ee2a3e;
+          border-color: #ee2a3e transparent #fff transparent;
+          animation: lds-dual-ring 1.2s linear infinite;
+        }
+        .body-loading {
+          background: transparent !important;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: calc(100vh - 188px) !important;
+          min-height: calc(100vh - 188px) !important;
+        }
+        @keyframes lds-dual-ring {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      </style>
+      <div class="lds-dual-ring"></div>
+    </body>
+  </ng-template>
+
+  <!-- 
+    <app-game-task-element state="started"></app-game-task-element>
+    <app-game-task-element state="notstarted"></app-game-task-element>
+    <app-game-task-element state="finished"></app-game-task-element> -->
+  <div *ngIf="vmInfo">
+    <app-game-vm-element
+      gameId="{{ id }}"
+      (myEvent)="ToogleVmInfo()"
+    ></app-game-vm-element>
+  </div>
+  <div *ngIf="stats">
+    <app-game-play-stats (myEvent)="ToogleStats()"></app-game-play-stats>
+  </div>
+</main>
+
+<div class="bg-rings">
+  <img class="ring-left" src="/assets/Player-Game-Play/ring1.png" alt="" />
+  <img class="ring-right" src="/assets/Player-Game-Play/ring2.png" alt="" />
+</div>

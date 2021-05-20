@@ -1,0 +1,30 @@
+<div class="bg-fade"></div>
+<main>
+  <div class="exit">
+    <button class="exit" (click)="callParent()">X</button>
+  </div>
+  <div class="exit" id="delivered-flags" title="Delivered flags">
+    <span class="delivered-flags">{{ LeverteFlagg }}</span>
+  </div>
+  <div class="answer">
+    <div class="header">
+      <h1>Deliver flag for task: {{ taskId }}</h1>
+    </div>
+    <div class="input">
+      <input
+        #flaginp
+        type="text"
+        placeholder="flag"
+        value="{{ flag }}"
+        (change)="handleChange(flaginp.value, $event)"
+      />
+      <button
+        [ngClass]="Delivering ? 'disabled' : ''"
+        class="btn"
+        (click)="DeliverFlag()"
+      >
+        {{ Delivering ? "Delivering flag!" : "Submit" }}
+      </button>
+    </div>
+  </div>
+</main>

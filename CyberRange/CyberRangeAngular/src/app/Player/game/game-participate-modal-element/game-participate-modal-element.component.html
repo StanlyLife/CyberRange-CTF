@@ -1,0 +1,22 @@
+<div class="bg-fade"></div>
+<main>
+  <div class="exit">
+    <button class="exit" (click)="callParent()">X</button>
+  </div>
+  <div class="answer">
+    <div class="header">
+      <h1>Password for game: {{ gameName }}</h1>
+    </div>
+    <div class="input">
+      <input
+        #passwordinput
+        type="text"
+        placeholder="password"
+        (change)="handleChange(passwordinput.value, $event)"
+      />
+      <button class="btn" (click)="ParticipateGameWithPassword()">
+        submit
+      </button>
+    </div>
+  </div>
+</main>

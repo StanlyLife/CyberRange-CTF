@@ -1,0 +1,24 @@
+main {
+    max-width: 1300px;
+    color: gold;
+    li {
+        list-style: none;
+        color: rgb(255, 211, 101);
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        max-width: 800px;
+        justify-content: space-evenly;
+        span {
+            flex: 3;
+            font-size: 1.25rem;
+            font-family: Arial, Helvetica, sans-serif;
+            &:last-child {
+                color: goldenrod;
+                flex: 1;
+                text-align: center; 
+            }
+        }
+        
+    }
+}

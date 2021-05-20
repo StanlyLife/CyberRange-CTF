@@ -1,0 +1,298 @@
+<main>
+  <canvas> </canvas>
+  <div>
+    <img src="../../assets/Group 1943@2x.png" class="responsive" />
+    <h1 id="pbk">Powered by Kongsberg</h1>
+    <img src="../../assets/Rectangle 122@2x.png" width="350px" />
+  </div>
+  <div style="text-align: center" class="container1">
+    <img src="../../assets/Group 1698.png" width="300" />
+    <p>
+      Få tildelt din egen VM og <br />
+      spill Capture the Flag <br />
+      med Cyber Range!
+    </p>
+    <img src="../../assets/Group 1698.png" width="300" />
+  </div>
+  <div class="loginContainer">
+    <a type="button" class="loginbtn" [routerLink]="['/login']">Login</a>
+
+    <img class="loginRings" src="../../assets/Group 1945@2x.png" alt="" />
+  </div>
+  <div class="pilned">
+    <!-- Pil ned -->
+    <img src="../../assets/chevron.png" />
+  </div>
+  <div>
+    <img src="../../assets/Rectangle 122@2x.png" class="redline" />
+  </div>
+  <div class="fillerGraphics">
+    <img src="../../assets/fillertext.svg" id="item1" />
+    <img src="../../assets/Group 1942.png" id="item2" />
+  </div>
+
+  <div class="bigtext">
+    <img src="../../assets/Rectangle 122.png" class="redline" />
+    <h1 id="registrerdeg">REGISTRER DEG</h1>
+  </div>
+  <form
+    novalidate
+    (ngSubmit)="registerUser()"
+    [formGroup]="registerForm"
+    id="register"
+    #register
+  >
+    <div class="registration">
+      <div class="inputcontainer">
+        <div class="input-container">
+          <div class="input-and-label">
+            <!-- User Name -->
+            <div class="input-container">
+              <div class="input-and-label">
+                <label>Username</label>
+                <input
+                class="reginput inputstyles"
+                  type="text"
+                  placeholder="Username"
+                  formControlName="UserName"
+                />
+              </div>
+              <div
+                class="form errors"
+                *ngIf="
+                  registerForm.controls['UserName'].invalid &&
+                  registerForm.controls['UserName'].dirty
+                "
+              >
+                <div *ngIf="registerForm.controls['UserName'].errors.required">
+                  Username is required.
+                </div>
+              </div>
+            </div>
+            <!--  -->
+
+            <div class="input-and-label">
+              <label>Email</label>
+              <input class="reginput inputstyles" type="text" placeholder="Email" formControlName="Email" />
+            </div>
+            <div
+              class="form errors"
+              *ngIf="
+                registerForm.controls['Email'].invalid &&
+                registerForm.controls['Email'].dirty
+              "
+            >
+              <div *ngIf="registerForm.controls['Email'].errors.required">
+                Email name is required.
+              </div>
+            </div>
+            <!-- first name -->
+            <label>First Name</label>
+            <input class="reginput inputstyles"
+              type="text"
+              placeholder="First name"
+              formControlName="FirstName"
+            />
+          </div>
+          <div
+            class="form errors"
+            *ngIf="
+              registerForm.controls['FirstName'].invalid &&
+              registerForm.controls['FirstName'].dirty
+            "
+          >
+            <div *ngIf="registerForm.controls['FirstName'].errors.required">
+              First name is required.
+            </div>
+          </div>
+        </div>
+        <!--  -->
+
+        <!-- Last Name -->
+        <div class="input-container">
+          <div class="input-and-label">
+            <label>Last Name</label>
+            <input class="reginput inputstyles"
+              type="text"
+              placeholder="Last name"
+              formControlName="LastName"
+            />
+          </div>
+          <div
+            class="form errors"
+            *ngIf="
+              registerForm.controls['LastName'].invalid &&
+              registerForm.controls['LastName'].dirty
+            "
+          >
+            <div *ngIf="registerForm.controls['LastName'].errors.required">
+              Last Name is required.
+            </div>
+          </div>
+        </div>
+        <!--  -->
+
+        <!-- Password -->
+        <div class="input-container">
+          <div class="input-and-label">
+            <label>Password</label>
+            <input class="reginput inputstyles"
+              type="password"
+              placeholder="Password"
+              formControlName="Password"
+            />
+          </div>
+          <div
+            class="form errors"
+            *ngIf="
+              registerForm.controls['Password'].invalid &&
+              registerForm.controls['Password'].dirty
+            "
+          >
+            <div *ngIf="registerForm.controls['Password'].errors.required">
+              Password is required.
+            </div>
+          </div>
+        </div>
+        <!--  -->
+
+        <!-- Confirm Password-->
+        <div class="input-container">
+          <div class="input-and-label">
+            <label>Confirm password</label>
+            <input class="reginput inputstyles"
+              type="password"
+              placeholder="Confirm password"
+              formControlName="ConfirmPassword"
+            />
+          </div>
+          <div
+            class="form errors"
+            *ngIf="
+              registerForm.controls['ConfirmPassword'].invalid &&
+              registerForm.controls['Password'].dirty
+            "
+          >
+            <div
+              *ngIf="registerForm.controls['ConfirmPassword'].errors.required"
+            >
+              Password is required.
+            </div>
+          </div>
+        </div>
+        <div class="input-container">
+          <div class="input-and-label">
+            <label>Register token</label>
+            <input class="reginput inputstyles"
+              type="password"
+              placeholder="A token is required to register"
+              formControlName="RegistrationCodeUsed"
+            />
+          </div>
+        </div>
+        <button
+          *ngIf="!processing"
+          class="smallbtn registrerbtn"
+          type="submit"
+          [title]="
+            registerForm.valid
+              ? 'Save your entered data'
+              : 'Disabled until the form data is valid'
+          "
+        >
+          Register
+        </button>
+        <button
+          *ngIf="processing"
+          class="smallbtn registrerbtn"
+          id="btn-processing"
+          disabled
+          type="submit"
+          [title]="
+            registerForm.valid
+              ? 'Save your entered data'
+              : 'Disabled until the form data is valid'
+          "
+        >
+          Processing
+        </button>
+        <div class="alert alert-danger" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+      </div>
+      <div>
+        <img src="../../assets/undraw_authentication_fsn5.png" alt="" />
+      </div>
+    </div>
+  </form>
+  <div class="infosection">
+    <div class="bordermål"></div>
+    <div class="mål">
+      <img src="../../assets/BrainCircle.png" alt="" />
+      <h3>VÅRT MÅL</h3>
+      <p>
+        Vi har som mål å utvikle og legge til rette for videreutvikling av en
+        CTF platform skreddersydd for Kongsberg Cyber Security Center. Ettersom
+        Bachelor prosjektet har en veldig kort levetid har vi som mål at Cyber
+        Range skal ha et solid fundament og tilstrekkelig med funksjoner slik at
+        KCSC enkelt kan se potensialet.
+      </p>
+    </div>
+
+    <div class="prosjektet">
+      <img src="../../assets/CogwheelCircle.png" alt="" />
+      <h3>
+        PROSJEKTET <br />
+        CYBER RANGE
+      </h3>
+      <p>
+        Cyber Range er en CTF platform utviklet for bruk innen rekrutering og
+        opplæring av personell som enten har eller er tiltenkt en rolle som
+        sikkerhetsanalytiker eller lignende. Prosjektet er en del av bachelor
+        oppgaven til Cyber Sparrow, en bachelor gruppe bestående av 5 elever ved
+        USN Kongsberg våren 2021.
+      </p>
+    </div>
+
+    <div class="teknologien">
+      <img src="../../assets/CircuitCircle.png" alt="" />
+      <h3>TEKNOLOGIEN</h3>
+      <p>
+        Microsoft Azure står for hostingen av alle de virtuelle maskinene og
+        serverne til Cyber Range. Web platformen kjøres fra en server som
+        benytter et image av ubuntu 18.04.Videre er serveren konfigurert med
+        .Net5 og Nginx. For å gjøre Cyber Range til en SPA (Singel Page
+        Application) er Angular benyttet.
+      </p>
+    </div>
+  </div>
+  <div class="bg-rings">
+    <img class="ring smallring" src="../../assets/Ringer/small.svg" alt="" />
+    <img
+      class="ring mediumringleft"
+      src="../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img
+      class="ring mediumringright"
+      src="../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img class="ring normalring" src="../../assets/Ringer/medium.svg" alt="" />
+    <img
+      class="ring largeringleft"
+      src="../../assets/Ringer/large.svg"
+      alt=""
+    />
+    <img
+      class="ring largeringright"
+      src="../../assets/Ringer/large.svg"
+      alt=""
+    />
+    <img
+      class="ring xlargering"
+      src="../../assets/Ringer/extralarge.svg"
+      alt=""
+    />
+  </div>
+</main>

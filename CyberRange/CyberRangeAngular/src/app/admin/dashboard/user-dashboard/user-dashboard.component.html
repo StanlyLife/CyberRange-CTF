@@ -1,0 +1,17 @@
+<div class="player-dashboard-resolved" *ngIf="resolved">
+  <div class="player-dashboard player-loop" *ngFor="let user of users">
+    <app-edit-search-result
+      FirstName="{{ user['firstName'] }}"
+      LastName="{{ user['lastName'] }}"
+      UserName="{{ user['userName'] }}"
+      Email="{{ user['email'] }}"
+      Biography="{{ user['biography'] }}"
+      ProfilePic="{{ user['profilePictureUrl'] }}"
+      BannerPic="{{ user['bannerPictureUrl'] }}"
+      Points="{{ user['totalPoints'] }}"
+      Level="{{ user['level'] }}"
+      Id="{{ user['id'] }}"
+      IsActive="{{ user['isUserActive'] }}"
+    ></app-edit-search-result>
+  </div>
+</div>

@@ -1,0 +1,170 @@
+<app-admin-profile-header></app-admin-profile-header>
+<main>
+  <div class="cardcontainer">
+    <!-- <div class="personalcontainer">
+      <div class="personalcard">
+        <img class="cardimg" src="../../../assets/BrainIconWCircle.svg" alt="" />
+        <h1 class="cardtext">Play</h1>
+        <a class="cardbtn" [routerLink]="['/game']">PLAY</a>
+      </div>
+      <div class="personalcard">
+        <img class="cardimg" src="../../../assets/CogIconWCircle.svg" alt="" />
+        <h1 class="cardtext">CHANGE PROFILE</h1>
+        <a class="cardbtn" [routerLink]="['player/edit-profile']">Change</a>
+      </div>
+      <div class="personalcard">
+        <img class="cardimg" src="../../../assets/CPUIconWCircle.svg" alt="" />
+        <h1 class="cardtext">STATISTICS</h1>
+        <a class="cardbtn" [routerLink]="['/stastistics']">View</a>
+      </div>
+    </div> -->
+    <div class="admincontainer">
+      <div class="admincard">
+        <div class="iconholder">
+
+          <img
+          class="cardimg newimg"
+          src="../../../assets/Dashboards/Ellipse 12.png"
+          alt=""
+          />
+          <div class="cardicon"><i class="fa fa-pie-chart"></i></div>
+        </div>
+        <h1 class="cardtext">
+          MONITOR <br />
+          STATS
+        </h1>
+        <a class="cardbtn" [routerLink]="['/admin/players']">Monitor</a>
+      </div>
+      <div class="admincard">
+        <div class="iconholder">
+
+          <img
+          class="cardimg newimg"
+          src="../../../assets/Dashboards/Ellipse 12.png"
+          alt=""
+          />
+          <div class="cardicon"><i class="fa fa-wrench"></i></div>
+        </div>
+        <h1 class="cardtext">CONFIGURE TASKS</h1>
+        <a class="cardbtn" [routerLink]="['/admin/task']">Configure</a>
+      </div>
+      <div class="admincard">
+        <div class="iconholder">
+
+          <img
+          class="cardimg newimg"
+          src="../../../assets/Dashboards/Ellipse 12.png"
+          alt=""
+          />
+          <div class="cardicon"><i class="fa fa-briefcase"></i></div>
+        </div>
+        <h1 class="cardtext">CONFIGURE GAMES</h1>
+        <a class="cardbtn" [routerLink]="['/admin/game']">Configure</a>
+      </div>
+    </div>
+  </div>
+  <div class="regContainer">
+    <div class="regTitle">
+      <h1 class="divTitle">registration codes</h1>
+      <img src="../../../assets/Rectangle 122.png" alt="" class="redline" />
+    </div>
+    <form
+      novalidate
+      (ngSubmit)="CreateCode()"
+      [formGroup]="codeCreateForm"
+      class="GameCreate"
+    >
+      <div class="codeInputContainer">
+        <div class="codeInput">
+          <div class="inputContainer">
+            <label class="inputLabel" for="codeInput">Code</label>
+            <input
+              class="inputTxt inputstyles"
+              type="text"
+              name=""
+              id="codeInput"
+              formControlName="Code"
+            />
+          </div>
+          <div class="inputContainer">
+            <label class="inputLabel" for="maxUses">Max uses</label>
+            <input
+
+              class="inputTxt maxuses inputstyles"
+              type="number"
+              name=""
+              id="maxUses"
+              formControlName="MaxUses"
+            />
+          </div>
+          <div class="inputContainer">
+            <div class="inp-label checkbox">
+              <label>Active</label>
+              <input name="" id="" type="checkbox" formControlName="Active" />
+            </div>
+          </div>
+        </div>
+        <button class="btn codeBtn">Add</button>
+      </div>
+    </form>
+    <div class="regListContainer" *ngIf="registrationCodesListVisible">
+      <div *ngFor="let code of RegistrationCodesList">
+        <app-registration-code-element
+          code="{{ code['codeId'] }}"
+          active="{{ code['active'] }}"
+          currentUses="{{ code['currentUses'] }}"
+          maxUses="{{ code['maxUses'] }}"
+        ></app-registration-code-element>
+      </div>
+    </div>
+    <div class="vm-dashboard">
+      <div class="regTitle">
+        <h1 class="divTitle">Vm dashboard</h1>
+        <img src="../../../assets/Rectangle 122.png" alt="" class="redline" />
+      </div>
+      <div class="regListContainer">
+        <app-vm-dash-board></app-vm-dash-board>
+        <button class="btn codeBtn killswitch" (click)="KillSwitch()">
+          Kill Switch
+        </button>
+      </div>
+    </div>
+    <div class="usersContainer">
+      <h1 class="divTitle">users</h1>
+      <img src="../../../assets/Rectangle 122.png" alt="" class="redline" />
+      <div class="userBox">
+        <app-user-dashboard></app-user-dashboard>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-rings">
+    <img class="ring smallring" src="../../assets/Ringer/small.svg" alt="" />
+    <img
+      class="ring mediumringleft"
+      src="../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img
+      class="ring mediumringright"
+      src="../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img class="ring normalring" src="../../assets/Ringer/medium.svg" alt="" />
+    <img
+      class="ring largeringleft"
+      src="../../assets/Ringer/large.svg"
+      alt=""
+    />
+    <img
+      class="ring largeringright"
+      src="../../assets/Ringer/large.svg"
+      alt=""
+    />
+    <img
+      class="ring xlargering"
+      src="../../assets/Ringer/extralarge.svg"
+      alt=""
+    />
+  </div>
+</main>

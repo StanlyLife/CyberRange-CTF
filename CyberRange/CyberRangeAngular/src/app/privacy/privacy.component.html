@@ -1,0 +1,15 @@
+   <main>
+
+       <h1>List of Claims</h1>
+       <ul>
+           <li *ngFor="let claim of claims">
+            <span>
+                {{claim.type}}
+                
+            </span>
+            <span>
+                {{claim.value}}
+            </span>  
+            </li>
+        </ul>
+    </main>

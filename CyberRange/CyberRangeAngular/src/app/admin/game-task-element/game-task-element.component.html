@@ -1,0 +1,135 @@
+<div *ngIf="visible">
+  <div class="task" *ngIf="Page == 'dashboard'">
+    <div class="header">
+      <div class="title">
+        <h2 id="tasknr">Task {{ taskId }}</h2>
+        <h1 class="taskname">{{ taskName }}</h1>
+      </div>
+      <img src="assets/Player-Game-Play/goldHeader.png" alt="" />
+    </div>
+    <div class="container">
+      <div class="taskinfo">
+        <h2 id="info">Max time</h2>
+        <p id="info">{{ Duration }} Minutes</p>
+        <h2 id="info">Max Points</h2>
+        <p id="info">{{ Points }}</p>
+        <h2 id="info"></h2>
+        <p id="info"></p>
+      </div>
+      <div class="btncontainer">
+        <div class="btn-one">
+          <button class="btn" id="taskbtn" (click)="toggleDescription()">
+            Description
+          </button>
+        </div>
+        <div class="btn-second">
+          <a id="submitbtn" routerLink="/admin/task/edit/{{ taskId }}">
+            edit
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="task" *ngIf="Page == 'game-has'">
+    <div class="header">
+      <div class="title">
+        <h2 id="tasknr">Task {{ taskId }}</h2>
+        <h1 class="taskname">{{ taskName }}</h1>
+      </div>
+      <img src="assets/Player-Game-Play/goldHeader.png" alt="" />
+    </div>
+    <div class="container">
+      <div class="taskinfo">
+        <h2 id="info">Max time</h2>
+        <p id="info">{{ Duration }} Minutes</p>
+        <h2 id="info">Max Points</h2>
+        <p id="info">{{ Points }}</p>
+        <h2 id="info"></h2>
+        <p id="info"></p>
+      </div>
+      <div class="btncontainer">
+        <div class="btn-one">
+          <button class="btn" id="taskbtn" (click)="toggleDescription()">
+            Description
+          </button>
+        </div>
+        <div class="btn-second">
+          <button id="submitbtn" (click)="RemoveTaskFromGame()">remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="task" *ngIf="Page == 'game-add'">
+    <div class="header">
+      <div class="title">
+        <h2 id="tasknr">Task {{ taskId }}</h2>
+        <h1 class="taskname">{{ taskName }}</h1>
+      </div>
+      <img src="assets/Player-Game-Play/goldHeader.png" alt="" />
+    </div>
+    <div class="container">
+      <div class="taskinfo">
+        <h2 id="info">Max time</h2>
+        <p id="info">{{ Duration }} Minutes</p>
+        <h2 id="info">Max Points</h2>
+        <p id="info">{{ Points }}</p>
+        <h2 id="info"></h2>
+        <p id="info"></p>
+      </div>
+      <div class="btncontainer">
+        <div class="btn-one">
+          <button class="btn" id="taskbtn" (click)="toggleDescription()">
+            Description
+          </button>
+        </div>
+        <div class="btn-second">
+          <button class="btn" id="submitbtn" (click)="AddTaskToGame(taskId)">
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="task" *ngIf="Page != 'dashboard'">
+    <div class="header">
+      <div class="title">
+        <h2 id="tasknr">Task {{ taskId }}</h2>
+        <h1 class="taskname">{{ taskName }}</h1>
+      </div>
+      <img src="assets/Player-Game-Play/goldHeader.png" alt="" />
+    </div>
+    <div class="container">
+      <div class="taskinfo">
+        <h2 id="info">Max time</h2>
+        <p id="info">{{ Duration }} Minutes</p>
+        <h2 id="info">Max Points</h2>
+        <p id="info">{{ Points }}</p>
+        <h2 id="info"></h2>
+        <p id="info"></p>
+      </div>
+      <div class="btncontainer">
+        <div class="btn-one">
+          <button class="btn" id="taskbtn" (click)="toggleDescription()">
+            Description
+          </button>
+        </div>
+        <div class="btn-second">
+          <button id="submitbtn" (click)="AddTaskToGame(taskId)">
+            Add task to game
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <h1>What page is this?</h1>
+    <h2>{{ Page }}</h2>
+  </div> -->
+
+  <app-admin-game-task-description
+    *ngIf="DescriptionOpen"
+    taskName="{{ taskName }}"
+    description="{{ Description }}"
+    (myEvent)="toggleDescription()"
+  >
+  </app-admin-game-task-description>
+</div>

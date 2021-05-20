@@ -1,0 +1,38 @@
+<main>
+  <div class="container">
+    <div class="profile">
+      <div class="pfpbg">
+        <img
+          class="profilepic"
+          [ngClass]="ProfilePic == '' ? 'empty' : 'full'"
+          src="{{
+            ProfilePic == ''
+              ? '../../../../../../../../assets/Profileheader/robot.jpg'
+              : ProfilePic
+          }}"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="nameplate">
+      <h1 title="{{ UserName }}">{{ UserName }}</h1>
+    </div>
+    <div class="points">
+      <h2>{{ Points }}pts</h2>
+    </div>
+    <div class="points">
+      <h2>Level {{ Level }}</h2>
+    </div>
+    <div class="buttons">
+      <div id="addbtn">
+        <h2 id="infoicon" class="placement">{{ Place }}</h2>
+      </div>
+      <div id="addbtn" *ngIf="Place == '1'">
+        <i title="current first place" id="infoicon" class="fa fa-trophy"></i>
+      </div>
+      <div id="addbtn" *ngIf="GameState == 'finished'">
+        <i id="infoicon" class="fa fa-check-circle"></i>
+      </div>
+    </div>
+  </div>
+</main>

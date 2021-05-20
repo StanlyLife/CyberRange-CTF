@@ -1,0 +1,486 @@
+@import "../../../variables.scss";
+
+.header {
+  width: 70%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 1000;
+  color: $gold;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  z-index: 1;
+  position: relative;
+  min-height: 130vh;
+}
+.mainContainer {
+  position: relative;
+  border: 5px solid $red-border;
+  border-radius: 15px;
+  width: 100%;
+  height: 30rem;
+  background-color: $bg-second;
+}
+.top {
+  width: 100%;
+  height: 35%;
+}
+
+//bottom
+.bottom {
+  width: 100%;
+  height: 65%;
+  border: 5px solid lime;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.editInputAndLabel {
+  width: 100%;
+  border: 5px solid yellow;
+  border-radius: 10px;
+  color: $gold;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: lighter;
+  .editInput {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: $bg-third;
+    padding: 5px;
+    padding-left: 10px;
+  }
+}
+.editTextAreaAndLabel {
+  display: flex;
+  flex-direction: column;
+  color: $gold;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: lighter;
+  width: 96+0.5%;
+}
+#bio {
+  background-color: $bg;
+  border: none;
+  border-radius: 10px;
+  color: $light;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: lighter;
+  padding: 5px;
+  min-width: 27.5rem;
+  max-height: 200px;
+  min-height: 200px;
+}
+#bioLabel {
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  // border: 2px solid orange;
+  text-align: left;
+}
+
+//from players-create
+.header {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  #header {
+    color: $gold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 1000;
+    font-size: 70px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  h2#header {
+    font-size: 40px;
+  }
+}
+#redrectangle {
+  width: 100%;
+}
+.createform {
+  position: relative;
+  border: 4px solid $red-border;
+  border-radius: 15px;
+  height: 540px;
+  padding: 1rem 0;
+  width: 100%;
+  background-color: $bg-second;
+  display: flex;
+  flex-direction: column;
+}
+.formcontainer {
+  //   border: 5px solid yellow;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+.userForm {
+  width: 100%;
+  height: 100%;
+  border: 4px solid red;
+  display: flex;
+  flex-wrap: wrap;
+}
+.inputcontainer {
+  position: relative;
+  margin: 20px;
+  width: 90%;
+  .inputandlabel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    // border: 2px solid blue;
+    position: relative;
+    input {
+      width: 100%;
+      border: none;
+      border-radius: 7px;
+      background-color: $bg;
+    }
+    label {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      color: $gold;
+      font-weight: lighter;
+      position: absolute;
+      left: 0px;
+      right: 0;
+      top: -20px;
+      font-size: 100%;
+    }
+  }
+}
+
+.four {
+  //   border: 2px solid yellow;
+  button {
+    width: 10rem;
+    height: 2rem;
+    border: none;
+    border-radius: 15px;
+    background-color: $red;
+    color: $light;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 100%;
+  }
+}
+// ProfilePic
+
+.picturebtn {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 240px;
+  width: 10rem;
+  height: 2rem;
+  border: none;
+  border-radius: 15px;
+  background-color: $red;
+  color: $light;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 100%;
+  text-transform: capitalize;
+}
+.profilepic {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -100px;
+  .pfpbg {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    background-image: url("../../../assets/admin-search-result-player/ProfilePicBg.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 125%;
+  }
+  .pfp {
+    position: absolute;
+    width: 200px;
+    left: 0;
+    right: 7.5px;
+    top: 22px;
+    pointer-events: none;
+  }
+}
+
+.edit-photo {
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  background-color: $bg-second;
+  border: 0px solid $red-second;
+  color: $red-second;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  pointer-events: all;
+  z-index: 49;
+  &:hover {
+    color: $red;
+    cursor: pointer;
+    background-color: $bg-third;
+  }
+  i {
+    text-align: center;
+  }
+}
+
+.change-image-modal {
+  position: fixed;
+  z-index: 50;
+  background-color: rgba(51, 51, 51, 0.589);
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .cim-bg {
+    border-radius: 25px;
+    background-color: $bg-third;
+    height: 500px;
+    width: 1000px;
+    max-height: 90vh;
+    max-width: 75vw;
+    position: relative;
+    border: 5px solid $red-border;
+  }
+
+  .cim-exit {
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    border: 4px solid $red;
+    background-color: $bg-second;
+    z-index: 51;
+    &:hover {
+      background-color: $bg;
+    }
+    &:active {
+      background-color: $bg-third;
+    }
+  }
+
+  .LyImageCropper-root-b {
+    background-color: $bg-third;
+    color: $gold;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    &:hover {
+      background-color: $bg;
+      color: $gold-second;
+      cursor: pointer;
+    }
+  }
+
+  .image-crop-button {
+    border: none;
+    border-radius: 25px;
+    padding: 0.25rem 5rem;
+    color: $light;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -15px;
+  }
+  .image-slider {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 25px;
+    width: 50%;
+    .y-bg-o,
+    .thumb-r,
+    .track-n {
+      background-color: $red !important;
+    }
+  }
+}
+
+.createform.header-image {
+  padding: 0;
+  height: 250px;
+  margin-top: 2rem;
+  margin-bottom: -25px;
+  .img-header {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    border-radius: 25px;
+  }
+  .LyImageCropper-root-b {
+    background-color: $bg-third;
+    color: $gold;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    &:hover {
+      background-color: $bg;
+      color: $gold-second;
+      cursor: pointer;
+    }
+  }
+  .image-crop-button {
+    border: none;
+    border-radius: 25px;
+    padding: 0.75rem 5rem;
+    color: $light;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -15px;
+  }
+  .image-slider {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 25px;
+    width: 50%;
+    .y-bg-o,
+    .thumb-r,
+    .track-n {
+      background-color: $red !important;
+    }
+  }
+}
+
+.profile-form {
+  width: 100%;
+  flex-direction: column;
+
+  label {
+    margin-top: 7.5px;
+    font-weight: 500 !important;
+    font-size: 24px;
+  }
+
+  input {
+    height: 45px;
+  }
+
+  input,
+  textarea {
+    color: $light;
+    font-size: 20px;
+  }
+
+  .one,
+  .two,
+  .three,
+  .four {
+    width: 100%;
+    padding: 0rem 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    .inputcontainer {
+      width: 48%;
+      padding: 0;
+    }
+  }
+  .one {
+    margin-top: 100px;
+    textarea {
+      width: 100%;
+    }
+  }
+  .three {
+    label {
+      margin-top: 0px;
+    }
+  }
+}
+
+ly-img-cropper,
+.b {
+  background-color: $bg-third;
+  color: $gold;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  &:hover {
+    background-color: $bg;
+    color: $gold-second;
+    cursor: pointer;
+  }
+}
+
+// rings
+
+.bg-rings {
+  pointer-events: none;
+  // height: 100vh;
+  position: absolute;
+  top: 400px;
+  width: 100%;
+  z-index: -1;
+  .ring {
+    position: absolute;
+    overflow: hidden;
+  }
+
+  .mediumringleft {
+    width: 400px;
+    height: 400px;
+    top: -450px;
+    left: -1550px;
+    right: 0px;
+  }
+  .mediumringright {
+    width: 400px;
+    height: 400px;
+    top: 150px;
+    left: 1240px;
+    right: 0px;
+  }
+  .normalring {
+    width: 900px;
+    height: 900px;
+    top: -350px;
+    left: -1900px;
+    right: 0px;
+  }
+  .largeringleft {
+    width: 800px;
+    height: 800px;
+    top: -550px;
+    left: 1250px;
+    right: 0px;
+  }
+  .largeringright {
+    width: 900px;
+    height: 900px;
+    top: -350px;
+    left: -350px;
+    right: 0px;
+  }
+}

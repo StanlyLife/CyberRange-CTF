@@ -1,0 +1,34 @@
+<form
+  *ngIf="resolved"
+  novalidate
+  (ngSubmit)="UpdateCode()"
+  [formGroup]="codeUpdateForm"
+  class="GameCreate"
+>
+  <div class="regCodeItem">
+    <div class="codeContainer">
+      <h2>{{ code }}</h2>
+    </div>
+    <div class="usesContainer">
+      <h2>{{ currentUses }}/</h2>
+      <input
+        class="maxuses"
+        type="number"
+        value="{{ maxUses }}"
+        formControlName="MaxUses"
+      />
+    </div>
+    <div class="boxContainer">
+      <div class="inputContainer">
+        <div class="inp-label checkbox">
+          <label>{{ active }}</label>
+          <input name="" id="" type="checkbox" formControlName="Active" />
+        </div>
+      </div>
+      <button type="button" (click)="DeleteCode()">
+        <i id="addicon" class="fa fa-trash"></i>
+      </button>
+      <button><i id="addicon" class="fa fa-chevron-circle-right"></i></button>
+    </div>
+  </div>
+</form>

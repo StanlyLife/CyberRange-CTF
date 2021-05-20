@@ -1,0 +1,248 @@
+<main>
+  <div class="gamecontainer">
+    <div class="container game">
+      <div class="box">
+        <div class="header">
+          <div class="image">
+            <i
+              class="fa {{ gameCreateForm.value.Icon }}"
+              style="cursor: pointer"
+            >
+            </i>
+          </div>
+          <div class="text">
+            <h1 id="game">
+              {{
+                gameCreateForm.value.Name == ""
+                  ? "Enter a game name"
+                  : gameCreateForm.value.Name
+              }}
+            </h1>
+          </div>
+        </div>
+        <div class="form">
+          <form
+            novalidate
+            (ngSubmit)="CreateGame()"
+            [formGroup]="gameCreateForm"
+            class="GameCreate"
+          >
+            <div class="left">
+              <div class="inp-label">
+                <label>Game</label>
+                <input type="text" formControlName="Name" />
+              </div>
+              <div
+                class="form-errors"
+                *ngIf="
+                  gameCreateForm.controls['Name'].invalid &&
+                  gameCreateForm.controls['Name'].dirty
+                "
+              >
+                <div *ngIf="gameCreateForm.controls['Name'].errors.required">
+                  Game name is required
+                </div>
+              </div>
+              <div class="inp-label textarea">
+                <label>Description</label>
+                <textarea
+                  class="descriptionScrollbar"
+                  id="descriptionBoundaries"
+                  formControlName="Description"
+                ></textarea>
+              </div>
+              <div
+                class="form-errors"
+                *ngIf="
+                  gameCreateForm.controls['Description'].invalid &&
+                  gameCreateForm.controls['Description'].dirty
+                "
+              >
+                <div
+                  *ngIf="gameCreateForm.controls['Description'].errors.required"
+                >
+                  A description is required
+                </div>
+              </div>
+            </div>
+            <div class="right">
+              <div class="inp-label dropdown">
+                <label>Category</label>
+                <select
+                  type="dropdown"
+                  formControlName="Category"
+                  #selectElem
+                  (change)="setNewCategory(selectElem.value)"
+                >
+                  <option
+                    *ngFor="let state of categories"
+                    [ngValue]="state.name"
+                  >
+                    {{ state.name }}
+                  </option>
+                </select>
+              </div>
+              <div
+                class="form-errors"
+                *ngIf="
+                  gameCreateForm.controls['Category'].invalid &&
+                  gameCreateForm.controls['Category'].dirty
+                "
+              >
+                <div
+                  *ngIf="gameCreateForm.controls['Category'].errors.required"
+                >
+                  Please select a category
+                </div>
+              </div>
+              <div class="inp-label">
+                <label>Icon</label>
+                <input
+                  type="text"
+                  formControlName="Icon"
+                  value="fa-cogs "
+                  placeholder="fa-cogs"
+                />
+                <a class="iconbtn" routerLink="/font-awesome" target="_blank"
+                  ><i class="fa fa-font-awesome"></i
+                ></a>
+              </div>
+              <div class="inp-label checkbox">
+                <label>Password required</label>
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  formControlName="PasswordRequired"
+                />
+              </div>
+              <div
+                class="inp-label"
+                *ngIf="gameCreateForm.value.PasswordRequired"
+              >
+                <label>Password</label>
+                <input
+                  type="text"
+                  formControlName="password"
+                  placeholder="rockyou.txt"
+                />
+              </div>
+              <div class="inp-label">
+                <label>Start</label>
+                <input
+                  class="timeinput"
+                  type="datetime-local"
+                  formControlName="StartDate"
+                />
+                <span class="icon right">📅</span>
+              </div>
+              <div
+                class="form-errors"
+                *ngIf="
+                  gameCreateForm.controls['StartDate'].invalid &&
+                  gameCreateForm.controls['StartDate'].dirty
+                "
+              >
+                <div
+                  *ngIf="gameCreateForm.controls['StartDate'].errors.required"
+                >
+                  Please select a start date
+                </div>
+              </div>
+              <div class="inp-label">
+                <label>End</label>
+                <input
+                  class="timeinput"
+                  type="datetime-local"
+                  formControlName="EndDate"
+                />
+                <span class="icon right">📅</span>
+              </div>
+              <div
+                class="form-errors"
+                *ngIf="
+                  gameCreateForm.controls['EndDate'].invalid &&
+                  gameCreateForm.controls['EndDate'].dirty
+                "
+              >
+                <div *ngIf="gameCreateForm.controls['EndDate'].errors.required">
+                  Please select an end date
+                </div>
+              </div>
+
+              <div class="inp-label dropdown">
+                <label>End</label>
+                <select
+                  type="dropdown"
+                  formControlName="VmTemplate"
+                  #selectElem
+                  (change)="setNewImage(selectElem.value)"
+                >
+                  <option
+                    *ngFor="let template of vmTemplates"
+                    [value]="template"
+                  >
+                    {{ template }}
+                  </option>
+                </select>
+              </div>
+              <!-- <div class="i
+              <!-- <div class="inp-label checkbox">
+                <label>Teams</label>
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  formControlName="IsTeamGame"
+                />
+              </div>
+              <div class="inp-label checkbox">
+                <label>Players</label>
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  formControlName="IsPlayerGame"
+                />
+              </div> -->
+            </div>
+            <div class="formbuttonpos">
+              <button id="formbutton" class="formbutton" type="submit">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-rings">
+    <img class="ring smallring" src="../../assets/Ringer/small.svg" alt="" />
+    <img
+      class="ring mediumringleft"
+      src="../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img
+      class="ring mediumringright"
+      src="../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img class="ring normalring" src="../../assets/Ringer/medium.svg" alt="" />
+    <img
+      class="ring largeringleft"
+      src="../../assets/Ringer/large.svg"
+      alt=""
+    />
+    <img
+      class="ring largeringright"
+      src="../../assets/Ringer/large.svg"
+      alt=""
+    />
+    <img
+      class="ring xlargering"
+      src="../../assets/Ringer/extralarge.svg"
+      alt=""
+    />
+  </div>
+</main>

@@ -1,0 +1,231 @@
+@import "../../../variables.scss";
+
+.dashboard {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 4px solid $red;
+  width: 240px;
+  border-radius: 13px;
+  height: 350px;
+  max-height: 350px;
+  position: relative;
+  //Bytt ut 1300px med min-width
+
+  color: $light;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin-bottom: 1vh;
+}
+.ended {
+  // border: none;
+  filter: blur(3px);
+  pointer-events: none;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 220px;
+  //padding-right: 1vh;
+  //padding-left: 1vh;
+  // border: 2px solid blue;
+}
+img {
+  // border: 5px solid red;
+  margin-top: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  //background: #222434;
+}
+h1 {
+  //margin-left: 3vh;
+  // margin-right: 3vh;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: $light;
+  font-size: 1.8rem;
+}
+h2 {
+  width: 100%;
+  //border: 1px dotted greenyellow;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: $light;
+  font-size: 100%;
+  letter-spacing: 0.05rem;
+}
+h3 {
+  width: 100%;
+  //border: 1px dotted pink;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: $red;
+  font-weight: lighter;
+  font-size: 150%;
+  letter-spacing: 0.05rem;
+}
+
+.content {
+  //border: 3px solid white;
+  flex: 3;
+  padding-top: 0px;
+  padding-bottom: 1vh;
+  padding-right: 0vh;
+  padding-left: 0vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: lighter;
+  text-align: center;
+  line-height: 1.1;
+  //margin-left: 3vh;
+  //margin-right: 3vh;
+  margin-bottom: 0.5vh;
+  letter-spacing: 0.01vh;
+  font-size: 90%;
+  width: 94%;
+  max-height: 90px;
+}
+.statisticsBtn {
+  border-radius: $btn-radius;
+  background-color: $yellow-btn;
+  box-shadow: $yellow-btn-glow;
+  border: none;
+  color: $bg;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  width: 80%;
+  position: absolute;
+  top: 180px;
+  left: 0;
+  right: 0;
+  &:hover {
+    background-color: $yellow-btn-hover;
+  }
+  &:active {
+    background-color: $yellow-btn-active;
+  }
+}
+.buttons {
+  display: flex;
+  flex: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  //padding-bottom: 25px;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 0.5vh;
+}
+a {
+  border: none;
+  border-radius: 15px;
+  width: 90%;
+  height: 30px;
+  background-color: $red-btn;
+  color: $light;
+  font-size: 1rem;
+  text-transform: capitalize;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: $red-btn-glow;
+  &:hover {
+    background-color: $red-btn-hover;
+  }
+
+  &:active {
+    background-color: $red-btn-active;
+  }
+}
+.imgcircle {
+  display: flex;
+  justify-content: center;
+  border: 0.25rem solid $gold-second;
+  border-radius: 50%;
+  width: 6.3rem;
+  height: 6.3rem;
+  position: relative;
+}
+
+#gameicon {
+  // position: absolute;
+  // left: 15px;
+  // right: 0;
+  // top: 15px;
+  padding-top: 15px;
+  text-align: center;
+  color: $gold-second;
+}
+
+.Serious {
+  border: 4px solid $red;
+}
+
+.fun {
+  border: 4px solid $gold-second;
+}
+
+.description {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  overflow-wrap: normal;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.description::-webkit-scrollbar {
+  width: 3px;
+}
+.description::-webkit-scrollbar-track {
+  // box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.description::-webkit-scrollbar-thumb {
+  background-color: $red;
+  width: 3px;
+  height: 6px;
+  border-radius: 3px;
+}
+.title {
+  max-width: 95%;
+  max-height: 40px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+.title::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+h2.Serious {
+  border: none;
+  color: $red-second;
+}
+
+h2.fun {
+  border: none;
+  color: $gold-second;
+}
+
+article {
+  i {
+    color: $gold;
+    font-size: 2rem;
+  }
+  h1 {
+    color: $gold;
+  }
+}
+
+.game-icon {
+  padding-top: 15px;
+  text-align: center;
+  color: $gold-second;
+}

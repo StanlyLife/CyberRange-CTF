@@ -1,0 +1,31 @@
+<div class="vm-container" *ngIf="resolved">
+  <div class="name">
+    <h1>VM</h1>
+    <p class="value">
+      {{ name }}
+    </p>
+  </div>
+  <div class="origin">
+    <h1>ORIGIN</h1>
+    <p class="value">
+      {{ origin }}
+    </p>
+  </div>
+  <div class="buttons">
+    <button (click)="DeleteVm()">
+      <i id="addicon" class="fa fa-trash"></i>
+    </button>
+    <button (click)="ToggleVmModal()">
+      <i id="addicon" class="fa fa-info-circle"></i>
+    </button>
+  </div>
+</div>
+
+<app-vm-info-modal
+  *ngIf="vmModal"
+  (myEvent)="ToggleVmModal()"
+  Name="{{ name }}"
+  IsGame="{{ isGame }}"
+  origin="{{ originValues }}"
+  player="{{ player }}"
+></app-vm-info-modal>

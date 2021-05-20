@@ -1,0 +1,110 @@
+<header style="color: white">
+  <nav id="nav" class="navbar navbar-light bg-white mt-5 fixed-bottom">
+    <!--
+          *ngIf="!isUserAuthenticated"
+          NAV ITEMS NEEDED:
+         Hjem Profil Statistikk Spill-->
+    <div class="link-container">
+      <div class="left">
+        <li *ngIf="!isUserAuthenticated" class="nav-item">
+          <button class="nav-link scroll-btn" (click)="scroll('register')">
+            Register
+          </button>
+        </li>
+        <li *ngIf="isUserAuthenticated" class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/player/edit']"
+            routerLinkActive="false"
+          >
+            Profile
+          </a>
+        </li>
+        <li *ngIf="isUserAuthenticated" class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/player/game']"
+            routerLinkActive="false"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            Play
+          </a>
+        </li>
+      </div>
+      <div class="right">
+        <li *ngIf="!isUserAuthenticated" class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/login']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            Login
+          </a>
+        </li>
+
+        <li *ngIf="isUserAuthenticated" class="nav-item">
+          <a
+            (click)="Logout()"
+            href="javascript:window.location.href=window.location.href"
+            >Logout</a
+          >
+        </li>
+      </div>
+    </div>
+    <!-- Admin -->
+    <a
+      *ngIf="isUserAdmin; else isAuth"
+      id="alogo"
+      class="nav-link"
+      [routerLink]="['/admin']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <img
+        id="logo"
+        class="logo"
+        src="../../assets/CyberRangeLogo.svg"
+        alt=""
+      />
+    </a>
+
+    <!-- else authenthicated -->
+    <ng-template #isAuth>
+      <ng-container *ngIf="isUserAuthenticated; else notAuth">
+        <a
+          id="alogo"
+          class="nav-link"
+          [routerLink]="['/player']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <img
+            id="logo"
+            class="logo"
+            src="../../assets/CyberRangeLogo.svg"
+            alt=""
+          />
+        </a>
+      </ng-container>
+    </ng-template>
+
+    <!-- not authenticated -->
+    <ng-template #notAuth>
+      <a
+        id="blogo"
+        class="nav-link"
+        [routerLink]="['/']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <img
+          id="logo"
+          class="logo"
+          src="../../assets/CyberRangeLogo.svg"
+          alt=""
+        />
+      </a>
+    </ng-template>
+  </nav>
+</header>

@@ -1,0 +1,85 @@
+<main>
+  <div>
+    <img src="../../assets/Group 1943@2x.png" class="responsive" />
+    <h1 id="pbk">Log in to play!</h1>
+    <img src="../../assets/Rectangle 122@2x.png" width="350px" />
+  </div>
+
+  <form
+    novalidate
+    (ngSubmit)="loginUser()"
+    [formGroup]="loginForm"
+    class="loginForm"
+  >
+    <div class="loginfield">
+      <div class="input-container">
+        <div class="input-and-label">
+          <label>Username</label>
+          <input
+            class="reginput inputstyles"
+            type="text"
+            placeholder="Username (required)"
+            formControlName="Email"
+          />
+        </div>
+        <div class="form-errors" *ngIf="loginForm.controls['Email'].invalid && loginForm.controls['Email'].dirty">
+          <div *ngIf="loginForm.controls['Email'].errors.required">
+            Username is required
+          </div>
+        </div>
+      </div>
+
+      <div class="input-container">
+        <div class="input-and-label">
+          <label>Password</label>
+          <input
+            class="reginput inputstyles"
+            type="password"
+            placeholder="Password (required)"
+            formControlName="Password"
+          />
+        </div>
+        <div class="form-errors" *ngIf="loginForm.controls['Password'].invalid && loginForm.controls['Password'].dirty">
+          <div *ngIf="loginForm.controls['Password'].errors.required">
+            Password is required
+          </div>
+        </div>
+      </div>
+      <!--  -->
+
+      <!-- This button activates the form method -->
+      <button
+        *ngIf="!processing"
+        class="loginbtn"
+        type="submit"
+        [title]="
+          loginForm.valid
+            ? 'Save your entered data'
+            : 'Disabled until the form data is valid'
+        "
+      >
+        Login
+      </button>
+      <button
+        *ngIf="processing"
+        disabled
+        id="login-loading"
+        class="loginbtn"
+        type="submit"
+        [title]="
+          loginForm.valid
+            ? 'Save your entered data'
+            : 'Disabled until the form data is valid'
+        "
+      >
+        Loading, please wait
+      </button>
+      <div class="alert alert-danger" *ngIf="errorMessage != null">
+        {{ errorMessage }}
+      </div>
+    </div>
+    <div class="graphics">
+      <img src="../../../assets/undraw_authentication_fsn5.png" alt="" />
+    </div>
+  </form>
+</main>

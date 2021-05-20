@@ -1,0 +1,24 @@
+<div class="bg-fade"></div>
+<main>
+  <div class="exit">
+    <button class="exit" (click)="callParent()">X</button>
+  </div>
+  <div class="answer">
+    <div class="header">
+      <h1>{{ Name }}</h1>
+      <hr class="redline" />
+    </div>
+    <div class="text">
+      <article>
+        <div class="points">
+          <h1>Points recieved</h1>
+          <p>{{ PointsRecieved }}/{{ MaxPoints }} points</p>
+        </div>
+        <div class="time">
+          <h1>Time spent</h1>
+          <p>{{ TimeSpent }}/{{ MaxTime }} minutes</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</main>

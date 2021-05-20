@@ -1,0 +1,152 @@
+<main>
+  <div class="gamecontainer">
+    <div class="container game">
+      <div class="box">
+        <div class="header">
+          <div class="icons">
+            <button class="delete" (click)="DeleteTask()">
+              <i class="fa fa-remove" style="cursor: pointer"></i>
+            </button>
+          </div>
+
+          <div class="text">
+            <h1 id="game">Edit TASK</h1>
+          </div>
+        </div>
+        <div class="form" *ngIf="recieved">
+          <form
+            novalidate
+            [formGroup]="taskEditForm"
+            (ngSubmit)="EditTask()"
+            class="GameCreate"
+          >
+            <div class="left">
+              <div class="inp-label">
+                <label for="">Task name</label>
+                <input
+                  id="inputtxt"
+                  type="text"
+                  placeholder=""
+                  formControlName="Name"
+                />
+              </div>
+              <div
+                class="form-errors"
+                *ngIf="
+                  taskEditForm.controls['Name'].invalid &&
+                  taskEditForm.controls['Name'].dirty
+                "
+              >
+                <div *ngIf="taskEditForm.controls['Name'].errors.required">
+                  Task name is required
+                </div>
+              </div>
+              <div class="inp-label textarea">
+                <label for="">Task description</label>
+                <textarea
+                  id="descriptionBoundaries"
+                  formControlName="Description"
+                ></textarea>
+              </div>
+              <div
+                class="form-errors"
+                *ngIf="
+                  taskEditForm.controls['Description'].invalid &&
+                  taskEditForm.controls['Description'].dirty
+                "
+              >
+                <div
+                  *ngIf="taskEditForm.controls['Description'].errors.required"
+                >
+                  Task name is required
+                </div>
+              </div>
+            </div>
+            <div class="right">
+              <div class="inp-label dropdown">
+                <label for="">VM Image</label>
+                <select
+                  type="dropdown"
+                  formControlName="TemplateName"
+                  #selectElem
+                  (change)="setNewImage(selectElem.value)"
+                >
+                  <option
+                    *ngFor="let template of vmTemplates"
+                    [value]="template"
+                  >
+                    {{ template }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="inp-label">
+                <label for="">Time Limit (minutes)</label>
+                <input
+                  id="inputtxt"
+                  type="number"
+                  formControlName="Duration"
+                  [(ngModel)]="selectOption"
+                />
+              </div>
+              <div class="inp-label">
+                <label for="">Achievable Points</label>
+                <input
+                  id="inputtxt"
+                  type="number"
+                  formControlName="MaxPoints"
+                />
+              </div>
+
+              <div class="inp-label">
+                <label for="">FLAG</label>
+                <input type="text" name="" id="" formControlName="Flag" />
+              </div>
+              <div class="inp-label checkbox">
+                <label for="">RANDOM FLAG</label>
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  formControlName="RandomFlag"
+                />
+              </div>
+            </div>
+            <div class="formbutton">
+              <button id="formbutton">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-rings">
+    <img class="ring smallring" src="../../assets/Ringer/small.svg" alt="" />
+    <img
+      class="ring mediumringleft"
+      src="../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img
+      class="ring mediumringright"
+      src="../../assets/Ringer/medium.svg"
+      alt=""
+    />
+    <img class="ring normalring" src="../../assets/Ringer/medium.svg" alt="" />
+    <img
+      class="ring largeringleft"
+      src="../../assets/Ringer/large.svg"
+      alt=""
+    />
+    <img
+      class="ring largeringright"
+      src="../../assets/Ringer/large.svg"
+      alt=""
+    />
+    <img
+      class="ring xlargering"
+      src="../../assets/Ringer/extralarge.svg"
+      alt=""
+    />
+  </div>
+</main>

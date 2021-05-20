@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="229" height="229" viewBox="0 0 229 229">
+  <g id="Group_7" data-name="Group 7" transform="translate(-227 -478)">
+    <g id="Ellipse_12" data-name="Ellipse 12" transform="translate(227 478)" fill="#262434" stroke="#d68c12" stroke-width="20">
+      <circle cx="114.5" cy="114.5" r="114.5" stroke="none"/>
+      <circle cx="114.5" cy="114.5" r="104.5" fill="none"/>
+    </g>
+    <g id="pie-chart" transform="translate(263 515.604)">
+      <path id="Path_15" data-name="Path 15" d="M130.539,137.315A78.551,78.551,0,1,1,73.686.03V32.91a45.817,45.817,0,1,0,33.666,81.219Z" transform="translate(0 0)" fill="#c8a518"/>
+      <path id="Path_16" data-name="Path 16" d="M60.155,12.75A77.252,77.252,0,0,1,40.637,59.778L17.45,36.592A45.117,45.117,0,0,0,27.275,12.75Z" transform="translate(96.845 70.594)" fill="#c8a518"/>
+      <path id="Path_17" data-name="Path 17" d="M86.24,73.52H53.359A45.718,45.718,0,0,0,12.75,32.91V.03A78.5,78.5,0,0,1,86.24,73.52Z" transform="translate(70.761 0)" fill="#c8a518"/>
+    </g>
+  </g>
+</svg>

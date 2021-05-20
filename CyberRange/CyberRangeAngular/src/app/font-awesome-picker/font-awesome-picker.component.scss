@@ -1,0 +1,26 @@
+@import "../../variables.scss";
+
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    .col-md-4.col-sm-6.col-lg-3.col-print-4{
+        color: $gold;
+        font-size: 2rem;
+        min-width: 500px;
+        padding: 1rem 1rem;
+        text-align: left;
+        i {
+        }
+    }
+}
+
+.text-muted {
+    display: none;
+}

@@ -1,0 +1,160 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~font-awesome/css/font-awesome.css";
+@import "./variables.scss";
+@import "~ngx-toastr/toastr";
+
+* {
+  margin: 0 auto;
+  padding: 0 auto;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  height: auto;
+  background-color: $bg !important;
+}
+main {
+  max-width: 1300px;
+}
+
+.btn {
+  transition: 0.25s;
+  cursor: pointer;
+  background-color: $red-btn;
+  box-shadow: $red-btn-glow;
+  &:hover {
+    background-color: $red-btn-hover;
+  }
+
+  &:active {
+    background-color: $red-btn-active;
+  }
+}
+
+.btn.gold {
+  background-color: $yellow-btn;
+  box-shadow: $yellow-btn-glow;
+}
+
+.btn.dark {
+  background-color: $bg;
+}
+
+.btn.dark-second {
+  background-color: $bg-second;
+}
+
+.btn-exit {
+  transition: 0.25s;
+  color: $red-btn;
+  &:hover {
+    color: $red-btn-hover;
+    transform: rotate(180deg);
+  }
+  &:active {
+    color: $red-btn-active;
+  }
+}
+
+.disabled {
+  background-color: $bg !important;
+  pointer-events: none;
+  box-shadow: $yellow-btn-glow !important;
+}
+
+/*SCROLLBAR*/
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ee2a3a;
+  border: 0px none #ffffff;
+  border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e61e32;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #ee2a3e;
+}
+::-webkit-scrollbar-track {
+  background: #333333;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #333333;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+// profile picture
+.pfp {
+  border-radius: 100%;
+}
+//disabled input
+.inp-disabled {
+  background-color: rgb(53, 53, 53) !important;
+  border: 2px solid #0000001f !important;
+  transition: 0.1s;
+  color: #ffffff57 !important;
+  &:hover {
+    color: $light !important;
+    border: 2px solid $red !important;
+    cursor: not-allowed;
+    background-color: rgb(29, 29, 29) !important;
+  }
+}
+
+//Loading for body
+.body-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 188px) !important;
+  min-height: calc(100vh - 188px) !important;
+}
+
+.inputstyles {
+  &:focus {
+    box-shadow: inset 0 0 0 2px $bg-third;
+    outline: none;
+  }
+  // &:active {
+  //   box-shadow: inset 0 0 0 2px $red-border;
+  // }
+  &:hover {
+    box-shadow: inset 0 0 0 2px $bg-second, 1px 3px 5px 3px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.searchinputstyles {
+  &:focus {
+    box-shadow: inset 0px 1px 5px 2px rgba(0, 0, 0, 0.2),
+      1px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    outline: none;
+  }
+  &:active {
+    // box-shadow: inset 0 0 0 2px $red-border;
+  }
+  &:hover {
+    box-shadow: inset 0px 1px 5px 2px rgba(0, 0, 0, 0.2),
+      1px 5px 5px 5px rgba(0, 0, 0, 0.2);
+  }
+}

@@ -1,0 +1,124 @@
+@import "src/variables.scss";
+.bg-fade {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: 49;
+  background-color: rgba(51, 51, 51, 0.808);
+  pointer-events: none;
+}
+
+main {
+  z-index: 50 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  border: 5px solid $red-second;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  top: 400px;
+  left: 0;
+  right: 0;
+  height: 300px;
+  width: 100vw;
+  background-color: rgba(34, 34, 34, 0.9);
+  border-radius: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .exit,
+  .refresh {
+    border: none;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    button {
+      border-radius: 500px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: $bg;
+      background-color: $red-second;
+      height: 50px;
+      width: 50px;
+      &:hover {
+        background-color: $red;
+        color: $light;
+      }
+    }
+  }
+  .refresh {
+    right: 15px;
+    left: auto;
+    button {
+      background-color: $gold;
+    }
+  }
+  // button.exit {
+  //   box-shadow: $red-btn-glow;
+  //   &:hover {
+  //     box-shadow: $yellow-btn-glow;
+  //   }
+  // }
+  // button.refresh {
+  //   box-shadow: $yellow-btn-glow;
+  //   &:hover {
+  //     box-shadow: $red-btn-glow;
+  //   }
+  // }
+  .answer {
+    height: 250px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    .header {
+      width: 100%;
+      h1 {
+        text-align: center;
+        max-width: 80%;
+        overflow: hidden;
+        text-transform: uppercase;
+        color: $gold-second;
+      }
+      p {
+        text-align: center;
+        color: $light;
+      }
+    }
+    .text {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      color: $gold-second;
+      div {
+        text-align: center;
+        .key {
+          color: $light;
+          text-transform: uppercase;
+          font-size: 1rem;
+        }
+
+        .value {
+          color: $gold;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+.redline {
+  width: 80%;
+  border: 0.1rem solid $red-second;
+  border-radius: 500px;
+}
+
+.reload {
+  font-family: Lucida Sans Unicode;
+  font-weight: 900;
+}

@@ -1,0 +1,78 @@
+<main>
+  <div class="container">
+    <div class="profile">
+      <div class="pfpbg">
+        <img
+          class="profilepic"
+          [ngClass]="ProfilePic == '' ? 'empty' : 'full'"
+          src="{{
+            ProfilePic == ''
+              ? '../../../../../../../assets/Profileheader/robot.jpg'
+              : ProfilePic
+          }}"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="nameplate">
+      <h1 title="{{ UserName }}">{{ UserName }}</h1>
+      <h6 title="{{ FirstName }} {{ LastName }}">
+        {{ FirstName }} {{ LastName }}
+      </h6>
+    </div>
+    <div class="points">
+      <h2>{{ Points }}p</h2>
+    </div>
+    <div class="points">
+      <h2>{{ Level }}</h2>
+    </div>
+    <div class="buttons">
+      <button (click)="toggle()" id="addbtn">
+        <i id="addicon" class="fa fa-trash"></i>
+      </button>
+      <button (click)="toggleEditModal()" id="addbtn">
+        <i id="infoicon" class="fa fa-cog"></i>
+      </button>
+    </div>
+  </div>
+</main>
+<div class="modalbg" *ngIf="show">
+  <div class="modalContainer">
+    <app-player-modal
+      class="modalView"
+      (myEvent)="toggle()"
+      FirstName="{{ FirstName }}"
+      LastName="{{ LastName }}"
+      UserName="{{ UserName }}"
+      Email="{{ Email }}"
+      Biography="{{ Biography }}"
+      ProfilePic="{{ ProfilePic }}"
+      BannerPic="{{ BannerPic }}"
+      Points="{{ Points }}"
+      Level="{{ Level }}"
+      Id="{{ Id }}"
+      IsActive="{{ IsActive }}"
+      state="delete"
+    ></app-player-modal>
+  </div>
+</div>
+<div class="modalbg" *ngIf="showEditModal">
+  <div class="modalContainer">
+    <app-player-modal
+      class="modalView"
+      (myEvent)="toggleEditModal()"
+      FirstName="{{ FirstName }}"
+      LastName="{{ LastName }}"
+      UserName="{{ UserName }}"
+      Email="{{ Email }}"
+      Biography="{{ Biography }}"
+      ProfilePic="{{ ProfilePic }}"
+      BannerPic="{{ BannerPic }}"
+      Points="{{ Points }}"
+      Level="{{ Level }}"
+      Id="{{ Id }}"
+      IsActive="{{ IsActive }}"
+      state="edit"
+    ></app-player-modal>
+  </div>
+</div>

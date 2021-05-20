@@ -1,0 +1,24 @@
+<div class="header">
+  <div class="blur">
+    <img class="banner-picture" src="{{ bannerPictureUrl }}" alt="" />
+  </div>
+  <div class="cut"></div>
+  <div class="header-container">
+    <div class="profile-picture">
+      <a routerLink="/player/edit">
+        <div>
+          <img *ngIf="profilePicture" src="{{ profilePicture }}" alt="" />
+        </div>
+      </a>
+    </div>
+    <div class="name">
+      <h1>{{ userName }}</h1>
+    </div>
+    <div class="level">
+      <p class="level">Admin</p>
+      <div class="progressbar">
+        <div class="progress" style="width: 0%"></div>
+      </div>
+    </div>
+  </div>
+</div>

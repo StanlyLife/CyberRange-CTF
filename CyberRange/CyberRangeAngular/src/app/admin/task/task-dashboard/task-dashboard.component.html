@@ -1,0 +1,42 @@
+<main>
+  <div class="gamesheader">
+    <h1>Add more tasks</h1>
+    <div class="buttons">
+      <a [routerLink]="['/admin/task/create']">Add</a>
+    </div>
+    <img src="../../assets/Rectangle 122@2x.png" id="redline" />
+  </div>
+  <div class="searchgames">
+    <h1 id="games">SEARCH FOR TASKS</h1>
+    <div class="gamesearchform">
+      <input class="searchinput" type="text" placeholder="Search" />
+      <a class="gsbtn"><i class="fa fa-search"></i></a>
+      <a class="gsbtn"><i class="fa fa-list-ul"></i></a>
+    </div>
+  </div>
+  <div class="gamescontainer">
+    
+    <div *ngFor="let task of tasks">
+
+      <app-game-task-element
+        taskName="{{ task.Name }}"
+        taskId="{{ task.TaskId }}"
+        Icon="{{ task.Icon }}"
+        Description="{{ task.Description }}"
+        Duration="{{ task.Duration }}"
+        Points="{{ task.MaxPoints }}"
+        Page="dashboard"
+      ></app-game-task-element>
+    </div>
+  </div>
+  
+  <div class="bg-rings">
+    <img class="ring smallring" src="../../assets/Ringer/small.svg" alt="" />
+    <img class="ring mediumringleft" src="../../assets/Ringer/medium.svg" alt="">
+    <img class="ring mediumringright" src="../../assets/Ringer/medium.svg" alt="">
+    <img class="ring normalring" src="../../assets/Ringer/medium.svg" alt="">
+    <img class="ring largeringleft" src="../../assets/Ringer/large.svg" alt="">
+    <img class="ring largeringright" src="../../assets/Ringer/large.svg" alt="">
+    <img class="ring xlargering" src="../../assets/Ringer/extralarge.svg" alt="">
+  </div>
+</main>

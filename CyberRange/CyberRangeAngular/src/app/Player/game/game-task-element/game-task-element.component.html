@@ -1,0 +1,153 @@
+<div>
+  <div
+    *ngIf="
+      state == 'started' || state == 'ready' || state == 'finished';
+      else error
+    "
+    [class]="GameCategory == 'fun' ? 'fun' : 'serious'"
+  >
+    <div class="task started" *ngIf="state == 'started'">
+      <div class="header">
+        <div class="title">
+          <h2 id="tasknr">Task {{ taskId }}</h2>
+          <h1 [title]="taskName">{{ taskName }}</h1>
+        </div>
+        <img src="assets/Player-Game-Play/goldHeader.png" alt="" />
+      </div>
+      <div class="container">
+        <div class="taskinfo">
+          <h2 id="info">TIME LEFT</h2>
+          <p id="info" *ngIf="!overhundredminutes">{{ counter | countDown }}</p>
+          <p id="info" *ngIf="overhundredminutes">100+ minutes</p>
+          <h2 id="info">MAX POINTS</h2>
+          <p id="info">{{ PointsAchievable }}</p>
+          <h2 id="info"></h2>
+          <p id="info"></p>
+        </div>
+        <div class="btncontainer">
+          <div class="btn-one">
+            <a class="btn" class="taskbtn" (click)="toggleDescription()">
+              Description
+            </a>
+            <a class="btn" class="taskbtn" (click)="ToogleVmInfo()"> Get VM </a>
+          </div>
+          <div class="btn-second">
+            <a class="btn" id="submitbtn" (click)="DeliverAnswer(taskId)">
+              Deliver flag
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="task finished" *ngIf="state == 'finished'">
+      <div class="header">
+        <div class="title">
+          <h2 id="tasknr">Task {{ taskId }}</h2>
+          <h1>{{ taskName }}</h1>
+        </div>
+        <img src="assets/Player-Game-Play/goldHeader.png" alt="" />
+      </div>
+      <div class="finished-stats">
+        <h3>Finished</h3>
+        <div>
+          <h6>Points</h6>
+          <p>{{ PointsRecieved }}/{{ PointsAchievable }}</p>
+        </div>
+        <div>
+          <h6>Time spent</h6>
+          <p>{{ Timespent }} Minutes</p>
+        </div>
+      </div>
+      <div class="taskcontainer">
+        <div class="container">
+          <div class="taskinfo">
+            <h2 class="info">TIME SPENT</h2>
+            <p class="info">00h08m</p>
+            <h2 class="info">POENG</h2>
+            <p class="info">{{ PointsRecieved }}/{{ PointsAchievable }}</p>
+            <h2 class="info"></h2>
+            <p class="info"></p>
+          </div>
+          <div class="btncontainer">
+            <div class="btn-one">
+              <a class="btn" class="taskbtn">Beskrivelse</a>
+              <a class="btn" class="taskbtn">Reset VM</a>
+            </div>
+            <div class="btn-second">
+              <a class="btn" id="submitbtn">Lever svar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="task not-started" *ngIf="state == 'ready'">
+      <div class="header">
+        <div class="title">
+          <h2 id="tasknr">Task {{ taskId }}</h2>
+          <h1>
+            {{ taskName }}
+          </h1>
+        </div>
+        <img src="assets/Player-Game-Play/goldHeader.png" alt="" />
+      </div>
+
+      <div class="container">
+        <div class="taskinfo">
+          <h2 id="info">Time available</h2>
+          <p id="info">{{ Duration }} minutes</p>
+          <h2 id="info">Max points</h2>
+          <p id="info">{{ PointsAchievable }}</p>
+          <p id="txtinfo">
+            Information about the task will be given once the task is started.
+            you will be provided a VM if required!
+          </p>
+        </div>
+        <div class="btncontainer">
+          <div class="btn-second">
+            <a
+              class="btn submitBtn"
+              id="submitbtn gold"
+              [ngClass]="{ disabled: processing }"
+              (click)="StartTask()"
+            >
+              {{ processing ? "Processing" : "Start task" }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #error>
+    <h1>ERROR WITH STATE</h1>
+    <h2>state: {{ state }}</h2>
+  </ng-template>
+
+  <div *ngIf="ModalOpen">
+    <app-game-task-flag-element
+      taskId="{{ TaskModal }}"
+      gameId="{{ id }}"
+      LeverteFlagg="{{ DeliveredFlags }}"
+      (myEvent)="toggleModal()"
+    ></app-game-task-flag-element>
+  </div>
+
+  <div *ngIf="DescriptionOpen">
+    <app-game-task-description-element
+      description="{{ Description }}"
+      taskName="{{ taskName }}"
+      (myEvent)="toggleDescription()"
+    ></app-game-task-description-element>
+  </div>
+
+  <div *ngIf="vmInfo">
+    <app-game-vm-element
+      gameId="{{ id }}"
+      taskId="{{ taskId }}"
+      type="task"
+      (myEvent)="ToogleVmInfo()"
+    ></app-game-vm-element>
+  </div>
+</div>

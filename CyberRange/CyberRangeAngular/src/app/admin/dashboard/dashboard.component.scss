@@ -1,0 +1,423 @@
+@import "../../../variables.scss";
+main {
+  position: relative;
+  z-index: 1;
+}
+.cardcontainer {
+  margin-top: 2rem;
+  //border: 5px dotted green;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.personalcontainer {
+  width: 100%;
+  // border: 3px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.personalcard {
+  display: flex;
+  flex-direction: column;
+  width: 407px;
+  height: 390px;
+  border: 5px solid $gold;
+  border-radius: 15px;
+}
+.admincontainer {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.admincard {
+  background-color: $bg;
+  display: flex;
+  flex-direction: column;
+  border: 5px solid $gold;
+  border-radius: 15px;
+  width: 407px;
+  height: 431px;
+  padding-bottom: 15px;
+}
+.cardtext {
+  margin-top: 1rem;
+  width: 80%;
+  //border: 1px solid red;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 1000;
+  color: $light;
+}
+.cardimg {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.newimg {
+  height: 220px;
+  width: 220px;
+}
+.cardbtn {
+  margin-top: 2rem;
+  border: none;
+  border-radius: $btn-radius;
+  width: 80%;
+  height: 10%;
+  background-color: $red-btn;
+  color: $light;
+  font-size: 120%;
+  text-transform: capitalize;
+  box-shadow: $red-btn-glow;
+}
+
+a.cardbtn {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-decoration: none;
+}
+a.cardbtn:hover {
+  background-color: $red-btn-hover;
+}
+a.cardbtn:active {
+  background-color: $red-btn-active;
+}
+
+.redline {
+  width: 650px;
+}
+
+.divTitle {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: $gold;
+  font-size: 300%;
+  text-transform: uppercase;
+}
+
+.regContainer {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  form {
+    width: 100%;
+  }
+}
+
+.codeInputContainer {
+  margin-top: 1rem;
+  width: 90%;
+  background-color: $bg-second;
+  border: 5px solid $red-border;
+  border-radius: 38px;
+  min-height: 5rem;
+  padding-top: 1rem;
+  position: relative;
+
+  .codeInput {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 3rem;
+
+    .inputContainer {
+      // border: 1px solid green;
+      position: relative;
+    }
+    .inputTxt {
+      background-color: $bg;
+      padding: 1rem;
+      color: $light;
+      border-radius: 15px;
+      border: none;
+      width: 298px;
+      height: $inputheight;
+    }
+    .inputLabel {
+      color: $gold;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      text-transform: capitalize;
+      position: absolute;
+      top: -15px;
+      left: 5px;
+    }
+    // .checkbox {
+    //   background-color: $bg;
+    //   border-radius: 200px;
+    //   height: 49px;
+    //   width: 53px;
+    // }
+    .boxLabel {
+      color: $gold;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      text-transform: capitalize;
+    }
+  }
+}
+.codeBtn {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 130px;
+  border: none;
+  border-radius: $btn-radius;
+  width: 8rem;
+  height: 2.5rem;
+  color: $light;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 120%;
+}
+
+.regListContainer {
+  margin-top: 4rem;
+  background-color: $bg-second;
+  border: 5px solid $red-border;
+  width: 90%;
+  border-radius: 38px;
+  min-height: 5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.usersContainer {
+  // border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 5rem;
+}
+.userBox {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  padding-left: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  // background-color: $bg;
+  border-radius: 15px;
+  // border: 1px solid yellow;
+}
+
+/// bg rings
+.bg-rings {
+  pointer-events: none;
+  height: 100vh;
+  position: absolute;
+  top: 400px;
+  width: 100%;
+  z-index: -1;
+  .ring {
+    position: absolute;
+    overflow: hidden;
+  }
+  .smallring {
+    height: 250px;
+    width: 250px;
+    top: 20px;
+    left: -800px;
+    right: calc(10px / 2);
+  }
+  .mediumringleft {
+    width: 400px;
+    height: 400px;
+    top: -390px;
+    left: -1250px;
+    right: 0px;
+  }
+  .mediumringright {
+    width: 400px;
+    height: 400px;
+    top: -609px;
+    left: 1380px;
+    right: 0px;
+  }
+  .normalring {
+    width: 500px;
+    height: 500px;
+    top: 900px;
+    left: 1000px;
+    right: 0px;
+  }
+  .largeringleft {
+    width: 800px;
+    height: 800px;
+    top: -130px;
+    left: -1150px;
+    right: 0px;
+  }
+  .largeringright {
+    width: 900px;
+    height: 900px;
+    top: -350px;
+    left: 900px;
+    right: 0px;
+  }
+  .xlargering {
+    width: 1000px;
+    height: 1000px;
+    top: 400px;
+    left: -1850px;
+    right: 0px;
+  }
+}
+
+//checkbox testing
+// .visually-hidden {
+//   border: 0;
+//   clip: rect(0 0 0 0);
+//   height: 1px;
+//   margin: -1px;
+//   overflow: hidden;
+//   padding: 0;
+//   position: absolute;
+//   width: 1px;
+// }
+
+// .container {
+//   color: $gold;
+//   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+//     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+//   display: inline-flex;
+//   align-items: center;
+// }
+
+// .control__indicator {
+//   margin-left: 1rem;
+//   width: 53px;
+//   height: 49px;
+//   background-color: $bg;
+//   border-radius: 10px;
+//   box-shadow: $dark-btn-glow;
+//   &:hover {
+//     background-color: $bg-third;
+//   }
+// }
+
+// .control__input:checked ~ .control__indicator {
+//   background-color: $bg;
+//   background-image: url("../../../assets/YellowCheckmark.svg");
+//   background-size: 70%;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   &:hover {
+//     background-color: $bg-third;
+//   }
+// }
+
+.vm-dashboard {
+  width: 100%;
+  padding-bottom: 5rem;
+  .regListContainer {
+    position: relative;
+  }
+}
+
+.killswitch {
+  top: auto;
+  &:hover {
+    animation: danger 0.25s infinite;
+  }
+}
+
+@keyframes danger {
+  0% {
+    box-shadow: 0 5px 15px rgba(238, 42, 62, 0.685);
+  }
+  25% {
+    box-shadow: 0 5px 15px rgba(238, 42, 61, 0.849);
+  }
+  50% {
+    box-shadow: 0 5px 15px rgba(233, 0, 23, 0.685);
+  }
+  75% {
+    box-shadow: 0 5px 15px rgba(122, 27, 36, 0.685);
+  }
+  100% {
+    box-shadow: 0 5px 15px rgba(46, 6, 10, 0.685);
+  }
+}
+
+// checkbox revisited
+.inp-label.checkbox {
+  position: relative;
+  $border-radius-checkbox: 5px;
+  border-radius: $border-radius-checkbox;
+  label {
+    top: auto;
+    bottom: -5px;
+    left: 1px;
+  }
+  input[type="checkbox"] {
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: $bg;
+    border: 0.25rem solid $bg-second; //SKAL VI HA DENNE HER ERIK?
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.425),
+      inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+    border-radius: $border-radius-checkbox;
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+  }
+  input[type="checkbox"]:active,
+  input[type="checkbox"]:checked:active {
+    background-color: #e9ecee;
+    border: 1px solid #adb8c0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+      inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05),
+      inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+    color: #99a1a7;
+  }
+
+  input[type="checkbox"]:checked:after {
+    content: "\2714";
+    font-size: 45px;
+    position: absolute;
+    bottom: 10px;
+    right: 0px;
+    color: $gold;
+    height: 40px;
+    width: 40px;
+  }
+}
+.iconholder {
+  position: relative;
+  // border: 1px solid red;
+}
+
+.cardicon {
+  font-size: 130px;
+  color: $gold-second;
+  position: absolute;
+  top: 52px;
+  left: 46px;
+  right: 0;
+  bottom: 0;
+}
+
+.maxuses {
+  margin-left: -8px;
+}
+

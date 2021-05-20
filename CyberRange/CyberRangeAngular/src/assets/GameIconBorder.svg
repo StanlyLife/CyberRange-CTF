@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="278.475" height="278.502" viewBox="0 0 278.475 278.502">
+  <defs>
+    <filter id="Ellipse_169" x="0" y="0" width="278.475" height="278.502" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="0.5" result="blur"/>
+      <feFlood flood-opacity="0.231"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_1960" data-name="Group 1960" transform="translate(-428.007 -555.28)">
+    <g transform="matrix(1, 0, 0, 1, 428.01, 555.28)" filter="url(#Ellipse_169)">
+      <g id="Ellipse_169-2" data-name="Ellipse 169" transform="translate(142.1) rotate(47)" fill="#45484b" stroke="#ee293d" stroke-width="25" stroke-dasharray="71 68">
+        <ellipse cx="97.417" cy="97.148" rx="97.417" ry="97.148" stroke="none"/>
+        <ellipse cx="97.417" cy="97.148" rx="84.917" ry="84.648" fill="none"/>
+      </g>
+    </g>
+    <g id="Ellipse_168" data-name="Ellipse 168" transform="translate(478.25 605.131)" fill="#222434" stroke="#707070" stroke-width="1">
+      <circle cx="87.241" cy="87.241" r="87.241" stroke="none"/>
+      <circle cx="87.241" cy="87.241" r="86.741" fill="none"/>
+    </g>
+  </g>
+</svg>
